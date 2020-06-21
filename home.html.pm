@@ -10,3 +10,15 @@
 ◊h3{源頭}
 
 racket 源於 PLT Scheme 這個專案，至今也仍然遵循 R7RS 這個 scheme 標準並擴展，某種程度上說他們是同一個語言也還行XD。
+
+◊h3{連結}
+
+◊link["https://racket-lang.org/"]{官網}
+
+◊h4{教學連結}
+
+◊ul{
+  ◊li{◊link["/quick-start.html"]{Quick Start}}
+  ◊li{預定：macro}
+  ◊li{預定：continuation 使用}
+}
