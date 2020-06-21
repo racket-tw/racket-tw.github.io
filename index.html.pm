@@ -22,3 +22,11 @@ racket 源於 PLT Scheme 這個專案，至今也仍然遵循 R7RS 這個 scheme
   ◊li{預定：macro}
   ◊li{預定：continuation 使用}
 }
+
+◊h3{專案}
+
+◊ul{
+  ◊li{◊link["https://github.com/racket-tw/intellij-racket"]{intellij-racket：racket 在 intellij 平台上的 plugin}}
+  ◊li{◊link["https://github.com/racket-tw/reporter"]{reporter：compiler 報告錯誤用的程式庫}}
+  ◊li{◊link["https://github.com/racket-tw/cc"]{cc：一個 racket 寫的 c to x86/64 compiler}}
+}
