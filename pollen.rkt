@@ -6,3 +6,4 @@
   `(a ((href ,href)) ,@elements))
 
 (define author "Lîm Tsú-thuàn")
+(define author-mail "dannypsnl@gmail.com")
