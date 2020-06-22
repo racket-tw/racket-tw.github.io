@@ -20,6 +20,7 @@ racket 源於 PLT Scheme 這個專案，至今也仍然遵循 R7RS 這個 scheme
 ◊ul{
   ◊li{◊link["/quick-start.html"]{Quick Start}}
   ◊li{預定：module}
+  ◊li{預定：typed/racket}
   ◊li{預定：macro}
   ◊li{預定：continuation 使用}
 }
