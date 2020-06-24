@@ -43,11 +43,11 @@ e ; 不是，我就只是叫 e 的變數 XD
 (f a b c) ; 函數呼叫，函數是 f，參數是 a b c
 }
 
-◊h3{小技巧}
+◊h3{控制流}
 
-作為 Lisp 的主要分支之一，racket 到處都是 () [] 等 S expression，並且稱呼 define 等特殊的表達式為 form。
-分辨函數與 form 在 racket 中並不容易，但影響其實不大，因為很少有人會需要弄清楚兩者的差別。
-[] 與 () 可以隨意替換使用，這有助於改善可讀性。例如 match 這個用來做 pattern matching 的 form：
+作為 Lisp 的主要分支之一,racket 到處都是 () [] 等 S expression,並且稱呼 define 等特殊的表達式為 form。
+分辨函數與 form 在 racket 中並不容易,但影響其實不大,因為很少有人會需要弄清楚兩者的差別。
+[] 與 () 可以隨意替換使用,這有助於改善可讀性。例如 match 這個用來做 pattern matching 的 form:
 
 ◊highlight['racket]{
 (match t
@@ -55,6 +55,49 @@ e ; 不是，我就只是叫 e 的變數 XD
   [(t:3 a _ c) (a c)]
   [_ #f])
 }
+
+racket 有數種控制流 form：
+
+◊highlight['racket]{
+(define condition? (= 1 1))
+;;; if form 應該是最簡單的，條件、then-expr、else-expr
+(if condition?
+    1
+    2)
+; 1
+;;; cond 後可以接任意個 cond-clause
+; 其中每個 cond-clause 都有 test-expr 或是 else pattern
+; 當 test-expr 成立，就會執行整串 body，就像 number? x 展示的那樣
+(define (is x)
+  (cond
+    [(number? x)
+     (displayln "do something else")
+     "number"]
+    [(string? x) "string"]
+    [else "unknown"]))
+(is "1")
+; "string"
+(is 2)
+; do something else
+; "number"
+;;; match 就是 pattern matching
+; 下面展示了 match 空 list 跟 match 時解開 list 得到 head tail 的情況
+(define (reduce x [r 0])
+  (match x
+    ['() r]
+    [(cons car cdr) (reduce cdr (+ r car))]))
+(reduce '(1 2 3))
+; 6
+}
+
+更多資訊
+◊ul{
+  ◊li{◊link["https://docs.racket-lang.org/reference/match.html"]{pattern matching}}
+  ◊li{◊link["https://docs.racket-lang.org/reference/case.html"]{case}}
+  ◊li{◊link["https://docs.racket-lang.org/reference/if.html"]{◊em{if}, ◊em{cond}, ◊em{and}, and ◊em{or}}}
+}
+
+◊h3{提前中斷}
 
 在 racket 中有兩點需要特別注意：
 
