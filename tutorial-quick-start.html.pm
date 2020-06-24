@@ -86,4 +86,4 @@ e ; 不是，我就只是叫 e 的變數 XD
 
 ◊p{}
 
-◊author 編輯
+◊link["https://github.com/dannypsnl"]{◊author} 編輯

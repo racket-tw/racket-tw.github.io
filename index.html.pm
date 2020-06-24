@@ -18,8 +18,8 @@ racket 源於 PLT Scheme 這個專案，至今也仍然遵循 R7RS 這個 scheme
 ◊h4{教學連結}
 
 ◊ul{
-  ◊li{◊link["/quick-start.html"]{Quick Start}}
-  ◊li{預定：module}
+  ◊li{◊link["/tutorial-quick-start.html"]{Quick Start}}
+  ◊li{◊link["/tutorial-module.html"]{Module}}
   ◊li{預定：typed/racket}
   ◊li{預定：macro}
   ◊li{預定：continuation 使用}

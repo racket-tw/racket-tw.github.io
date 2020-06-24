@@ -1,0 +1,111 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Module, by MB</title>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+<root><h1>Module</h1>
+
+<h3>檔案</h3>
+
+racket 的每一個檔案本身都會是一個模組(module)，例如：
+
+<div class="highlight"><pre><code>;;; hello.rkt
+#lang racket
+
+(provide print-hello)
+
+(define (print-hello)
+  (printf "Hello~n"))</code></pre></div>
+
+對同一個目錄的檔案來說就可以用
+
+<div class="highlight"><pre><code>(require "hello.rkt")</code></pre></div>
+
+引用這個模組中的定義。racket 將 require 後的字串解析為相對路徑，所以也可以用 "../xxx.rkt" 等方式引用。
+
+<h3>Collection</h3>
+
+<em>Collection</em> 是已安裝的一群模組，引用 <em>Collection</em> 是用沒有檔案類型類後綴的路徑，下面引用了在 <em>Collection</em> "racket" 中的 module "date.rkt"
+
+<div class="highlight"><pre><code>(require racket/date)
+
+(printf "Today is ~s\n"
+        (date-&gt;string (seconds-&gt;date (current-seconds))))</code></pre></div>
+
+除了內建的 <em>Collection</em>，可以用 raco pkg 指令取得第三方程式庫：
+
+<div class="highlight"><pre><code>pkg install cur</code></pre></div>
+
+<h3>專案</h3>
+
+可以用以下指令生成新的專案(開發新的 Collection)：
+
+<div class="highlight"><pre><code>raco pkg new &lt;collection-name&gt;
+raco pkg install --auto</code></pre></div>
+
+注意 install --auto 那行不能省略，不然會看到 test 指令瘋狂失敗 www。
+
+在任意一個專案中的檔案都可以寫測試：
+
+<div class="highlight"><pre><code>#lang racket
+
+(module+ test
+  (require rackunit))
+
+(define x 1)
+
+(module+ test
+  (check-equal? 1 x))</code></pre></div>
+
+用以下指令執行測試：
+
+<div class="highlight"><pre><code>raco test .</code></pre></div>
+
+如果最後刪除這個目錄，也要記得刪除 raco 中的紀錄：
+
+<div class="highlight"><pre><code>raco pkg remove &lt;collection-name&gt;</code></pre></div>
+
+不然就會造成 raco 一直找不到該 collection 而沒辦法正常運作。
+
+如果要開發 executable，在 main.rkt(生成的專案裡會有) 裡的 module+ main 裡面寫的程式就會是 executable 執行的東西，而仍然可以引用這個 collection 不會執行到這些程式。
+
+<h3>#lang</h3>
+
+#lang 是 racket 的語言核心，這是 racket 裡面唯一不可以拿掉的部分，事實上 #lang xxx 代表的是以 xxx 包裹這個模組的意思。
+語法僅僅是表象這個說法在 racket 中發揮的淋漓盡致，最常見的 module language 就是 racket、racket/base。
+例如說我們可以在 REPL 裡面打：
+
+<div class="highlight"><pre><code>&gt; (module f racket
+    (provide (except-out (all-from-out racket) lambda)
+             (rename-out [lambda function])))
+&gt; (module use 'f
+    ((function (x) x) 1))
+&gt; (require 'use)
+1</code></pre></div>
+
+暫時不用理解 provide 裡面 except-out rename-out 等等奇怪的東西。
+我們只關心 module 語法，它接受 name 以及一個可選參數 module。這個 module provide 的 form 會成為該 module 的語言基礎。
+而 #lang 也只是 module 的語法糖。
+
+<div class="highlight"><pre><code>#lang s-exp "html.rkt"
+
+(title "Queen of Diamonds")
+(p "Updated: " ,(now))</code></pre></div>
+
+如果有 html.rkt 這個 module，s-exp "html.rkt" 就是 (module &lt;file-name&gt; "html.rkt") 而已。
+
+<h3>總結</h3>
+
+希望這段教學可以讓讀者看懂怎麼用 module 了，如果覺得有哪些資訊也應該放進這篇裡面可以寄信(dannypsnl@gmail.com)告訴我，
+如果有想了解的內容但還沒有相關教學可以 <a href="https://github.com/racket-tw/racket-tw.github.io/issues/new">開新 issue</a>。
+
+<p></p>
+
+<a href="https://github.com/dannypsnl">Lîm Tsú-thuàn</a> 編輯
+</root>
+<p><p/>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />本著作係採用<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">創用 CC 姓名標示-非商業性-禁止改作 4.0 國際 授權條款</a>授權.
+</body>
+</html>
