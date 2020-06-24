@@ -1,7 +1,10 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>◊(select 'h1 doc), by MB</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>◊(select 'h1 doc)</title>
   <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
