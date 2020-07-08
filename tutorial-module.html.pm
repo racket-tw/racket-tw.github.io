@@ -87,7 +87,7 @@ raco pkg remove <collection-name>
 ◊h3{#lang}
 
 #lang 是 racket 的語言核心，這是 racket 裡面唯一不可以拿掉的部分，事實上 #lang xxx 代表的是以 xxx 包裹這個模組的意思。
-語法僅僅是表象這個說法在 racket 中發揮的淋漓盡致，最常見的 module language 就是 racket、racket/base。
+語法僅僅是表象這個說法在 racket 中發揮的淋漓盡致，最常見的 module language 就是 racket、racket/base。
 例如說我們可以在 REPL 裡面打：
 
 ◊highlight['racket]{
