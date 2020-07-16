@@ -29,10 +29,19 @@ typed/racket 顧名思義就是標註了 type 的 racket，與 racket/base 的�
 
 ◊h3{函數類型}
 
+我們用 ◊highlight['racket]{->} 建構函數類型，這在數學上的意思是蘊含，而 A->B 代表 A 蘊含 B，
+racket 裡照慣例用了前綴表達法: ◊highlight['racket]{(-> A B)}。
+所以下列都是合法的類型，只要 A B 都是類型，則 (-> A B) 是類型
+
 ◊highlight['racket]{
 (-> Number Number Number)
 (-> String String Boolean)
 }
+
+TODO instance and declare/define function with type
+
+◊h3{TODO struct}
+◊h3{TODO polymorphism}
 
 ◊p{}
 
