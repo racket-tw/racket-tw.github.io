@@ -5,7 +5,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <title>◊(select 'h1 doc)</title>
-  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="stylesheet" type="text/css" href="/styles.css" />
 </head>
 <body>
 ◊(->html doc)
