@@ -113,9 +113,28 @@ struct 必定會引入新的型別，並且使用 nominal subtyping，下面提�
 }
 
 這個表達式的型別就是 Symbol [more precisely: (U 'is-even 'is-odd)] (值自己一定是自己的型別)
-                                                                                        :w
 
-◊h3{TODO recursive type}
+◊h3{recursive type}
+
+type 之間互相參照就叫做 recursive type，在 typed/racket 裡頭可以用 U 與 define-type 來達成這個效果：
+
+◊highlight['racket]{
+(define-type BinaryTree (U Number (Pair BinaryTree BinaryTree)))
+
+(define-type Tree (U leaf node))
+(struct leaf ([val : Number]))
+(struct node ([left : Tree] [right : Tree]))
+}
+
+當然我們不可以直接參照自己：
+
+◊highlight['racket]{
+(define-type A A)
+(define-type B (U Number B))
+}
+
+以上都是 invalid type。
+
 ◊h3{TODO polymorphism}
 ◊h3{TODO interact}
 
