@@ -101,7 +101,20 @@ struct 必定會引入新的型別，並且使用 nominal subtyping，下面提�
 
 這樣 dog 也可以是 animal，因為 animal 是 dog 的 super type。
 
-◊h3{TODO union type}
+◊h3{union type}
+
+為了讓許多原先存在於 racket 的概念運作，也是為了更複雜的應用，typed/racket 提供了 union type，語法 (U a b c) 代表 這個型別可能是 a b 或 c：
+
+◊highlight['racket]{
+(let ([n 10])
+  (if (even? n)
+    'is-even
+    'is-odd))
+}
+
+這個表達式的型別就是 Symbol [more precisely: (U 'is-even 'is-odd)] (值自己一定是自己的型別)
+                                                                                        :w
+
 ◊h3{TODO recursive type}
 ◊h3{TODO polymorphism}
 ◊h3{TODO interact}
