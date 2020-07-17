@@ -33,6 +33,17 @@ typed/racket 顧名思義就是標註了 type 的 racket，與 racket/base 的�
 
 <h3>函數類型</h3>
 
+我們用 -&gt; 建構函數類型，這在數學上的意思是蘊含，A-&gt;B 代表 A 蘊含 B，racket 裡照慣例用了前綴表達法 (-&gt; A B)。
+所以下列都是合法的類型，只要 A B 都是類型，則 (-&gt; A B) 是類型
+
+<div class="highlight"><pre><code>(-&gt; Number Number Number)
+(-&gt; String String Boolean)</code></pre></div>
+
+TODO instance and declare/define function with type
+
+<h3>TODO struct</h3>
+<h3>TODO polymorphism</h3>
+
 <p></p>
 
 <a href="https://github.com/dannypsnl">Lîm Tsú-thuàn</a> 編輯
