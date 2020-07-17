@@ -81,9 +81,28 @@ p.s. 根據我目前所知，->* 必須明確的寫成 declare/define 分開的�
   )
 }
 
-一般形式的 keyword argument 應該不是什麼大問題，但 optional keyword argument 要注意 pre-binding 不能把 keyword 自己綁進去，而是要把它的對應變數包進去。 
+一般形式的 keyword argument 應該不是什麼大問題，但 optional keyword argument 要注意 pre-binding 不能把 keyword 自己綁進去，而是要把它的對應變數包進去。
 
-◊h3{TODO struct}
+◊h3{struct}
+
+struct 必定會引入新的型別，並且使用 nominal subtyping，下面提供一個 struct 的簡單案例：
+
+◊highlight['racket]{
+(struct point
+  ([x : Real]
+   [y : Real]))
+}
+
+現在表達式 (point 1 2) 的型別就會是 point，struct 可以有 super type：
+
+◊highlight['racket]{
+(struct dog animal ())
+}
+
+這樣 dog 也可以是 animal，因為 animal 是 dog 的 super type。
+
+◊h3{TODO union type}
+◊h3{TODO recursive type}
 ◊h3{TODO polymorphism}
 ◊h3{TODO interact}
 
