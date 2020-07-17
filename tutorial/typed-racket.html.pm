@@ -135,8 +135,45 @@ type 之間互相參照就叫做 recursive type，在 typed/racket 裡頭可以�
 
 以上都是 invalid type。
 
-◊h3{TODO polymorphism}
-◊h3{TODO interact}
+◊h3{polymorphism}
+
+polymorphism 或是有些人只聽過 generic，我不打算分清楚他們的差別，以免讀者陷在定義上，這裏主要說的是參數多型，與 struct 那邊的 super type 不同，
+現在先看一個簡單的範例：
+
+◊highlight['racket]{
+(define-type (Opt a) (U None (Some a)))
+(struct None ())
+(struct (a) Some ([v : a]))
+}
+
+這個型別可以用來表達可能有值也可能沒有值的情況。函數一樣可以接受不定型別作為參數：
+
+◊highlight['racket]{
+(: list-length (All (A) (-> (Listof A) Integer)))
+(define (list-length lst)
+  (if (null? lst)
+    0
+    (+ 1 (list-length (cdr lst)))))
+}
+
+All 對應邏輯裡面的 ∀ 符號，意思是對所有 A 都成立。
+
+◊h3{interaction}
+
+使用 typed/racket，如果函式庫作者沒有提供 type definition 難道就沒救了嗎？這就是最後一塊拼圖，typed/racket 允許使用者提供型別定義：
+
+◊highlight['racket]{
+(require/typed "point.rkt"
+  [#:struct point ([x : Real] [y : Real])]
+  [distance (-> point point Real)])
+}
+
+這樣一來使用者就不需要綁死在 racket 或是 typed/racket 上，而是能夠按需要選擇適合的語言了。
+
+◊h3{總結}
+
+希望這些可以讓讀者開始使用 typed/racket 增強需要型別檢查的部分，如果覺得有哪些資訊也應該放進這篇裡面可以寄信(◊author-mail)告訴我，
+如果有想了解的內容但還沒有相關教學可以 ◊link["https://github.com/racket-tw/racket-tw.github.io/issues/new"]{開新 issue}。
 
 ◊p{}
 
