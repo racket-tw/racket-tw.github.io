@@ -181,6 +181,31 @@ polymorphism 或是有些人只聽過 generic，我不打算分清楚他們的�
 
 All 對應邏輯裡面的 ∀ 符號，意思是對所有 A 都成立。
 
+◊h3{inst/ann}
+
+◊h4{ann}
+
+ann 是 annotation 的縮寫，用來標記表達式 (expression) 的型別是什麼，總計有三種寫法：
+
+◊highlight['racket]{
+(let ([#{x : Number} 7]) x)
+(ann x Number)
+#:{x :: Number}
+}
+
+由於 typed/racket 有 precisely type，所以用 annotation 有時候是有需要的(笑)。
+
+◊h4{inst}
+
+而 inst 就更重要了，為了基於 racket 許多內建的 case-lambda 跟 polymorphism function 上，有時候會遇到 type checker 沒辦法推導出正確型別的情況，這時候就需要 inst 提供 type argument 實例化 type：
+
+◊highlight['racket]{
+;;; 這會撞到 Polymorphic function `foldl' could not be applied to arguments
+(foldl cons null (list 1 2 3 4))
+;;; 解法
+(foldl (cons Integer Integer) null (list 1 2 3 4))
+}
+
 ◊h3{interaction}
 
 使用 typed/racket，如果函式庫作者沒有提供 type definition 難道就沒救了嗎？這就是最後一塊拼圖，typed/racket 允許使用者提供型別定義：
