@@ -72,6 +72,29 @@ typed/racket 顧名思義就是標註了 type 的 racket，與 racket/base 的�
 
 p.s. 根據我目前所知，->* 必須明確的寫成 declare/define 分開的形式，寫成 define 內涵型別定義的 form 時 type checker 還是會覺得 optional argument 沒被填上是 type mismatching。
 
+◊p{}
+
+而 racket 本來就支援 case-lambda(aka function overloading)，所以 typed/racket 也需要處理這個情況：
+
+◊highlight['racket]{
+(: append (All (a) (case->
+                     [(Listof a) a -> (Listof a)]
+                     [(Listof a) (Listof a) -> (Listof a)])))
+;;; 直接定義
+(define append2
+  (case-lambda #:forall (a)
+    [([l : (Listof a)]
+      [x : a])
+     (append l (list x))]
+    [([l1 : (Listof a)]
+      [l2 : (Listof a)])
+     (append l1 l2)]))
+}
+
+case-> 只有在 require/typed 的時候能用，不然參數想同的情況下 typed/racket 會把 x 被推導成 (U (Listof a) a)。
+
+◊p{}
+
 有趣(麻煩)的最後一點是 keyword argument：
 
 ◊highlight['racket]{
