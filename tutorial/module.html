@@ -26,7 +26,7 @@ racket 的每一個檔案本身都會是一個模組(module)，例如：
 
 <div class="highlight"><pre><code>(require "hello.rkt")</code></pre></div>
 
-引用這個模組中的定義。racket 將 require 後的字串解析為相對路徑，所以也可以用 "../xxx.rkt" 等方式引用。
+引用這個模組中的定義。racket 將 <a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" class="rkt-docs"><code>require</code></a> 後的字串解析為相對路徑，所以也可以用 "../xxx.rkt" 等方式引用。
 
 <h3>Collection</h3>
 
@@ -39,7 +39,7 @@ racket 的每一個檔案本身都會是一個模組(module)，例如：
 
 除了內建的 <em>Collection</em>，可以用 raco pkg 指令取得第三方程式庫：
 
-<div class="highlight"><pre><code>pkg install cur</code></pre></div>
+<div class="highlight"><pre><code>raco pkg install cur</code></pre></div>
 
 <h3>專案</h3>
 

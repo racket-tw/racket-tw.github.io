@@ -24,12 +24,11 @@ typed/racket 顧名思義就是標註了 type 的 racket，與 racket/base 的�
 1 : Integer [more precisely: Positive-Byte]
 }
 
-可以看到一個奇特現象是 racket 的 type 經常有所謂的 more precisely 的標記，來說明存在更精確的型別存在，實際上怎麼做到的這裡不提，但這麼做的理由是為了支持所謂的 type refinement，
-可以讓 type checker 根據需要限縮型別。除此之外所有的值都可以是自己的 type: ◊highlight['racket]{(ann 1 1)} 是合法的標註。
+可以看到一個奇特現象是 racket 的 type 經常有所謂的 more precisely 的標記，來說明存在更精確的型別存在，實際上怎麼做到的這裡不提，但這麼做的理由是為了支持所謂的 type refinement，可以讓 type checker 根據需要限縮型別。除此之外所有的值都可以是自己的 type: ◊highlight['racket]{(ann 1 1)} 是合法的標註。
 
 ◊h3{函數類型}
 
-我們用 -> 這個 type constructor 建構函數類型，這在數學上的意思是蘊含，A->B 代表 A 蘊含 B，racket 裡照慣例用了前綴表達法 (-> A B)，只要 A B 都是類型,則 (-> A B) 是類型。
+我們用 ◊typed/rkt{->} 這個 type constructor 建構函數類型，這在數學上的意思是蘊含，A->B 代表 A 蘊含 B，racket 裡照慣例用了前綴表達法 (-> A B)，只要 A B 都是類型,則 (-> A B) 是類型。
 所以下列都是合法的類型：
 
 ◊highlight['racket]{
@@ -37,7 +36,7 @@ typed/racket 顧名思義就是標註了 type 的 racket，與 racket/base 的�
 (-> String String Boolean)
 }
 
-對應 define，typed/racket 提供了 : 作為宣告型別的語法：
+對應 ◊typed/rkt{define}，typed/racket 提供了 ◊typed/rkt{:} 作為宣告型別的語法：
 
 ◊highlight['racket]{
 (: add (-> Number Number Number))
@@ -48,7 +47,7 @@ typed/racket 顧名思義就是標註了 type 的 racket，與 racket/base 的�
   (eqv? s1 s2))
 }
 
-然而也提供了修改過的 define：
+然而也提供了修改過的 ◊typed/rkt{define}：
 
 ◊highlight['racket]{
 (define (add [x : Number]
@@ -61,7 +60,7 @@ typed/racket 顧名思義就是標註了 type 的 racket，與 racket/base 的�
   (eqv? s1 s2))
 }
 
-這些語法可以大部分的情況了，但 racket 本身允許可選參數的存在，在 typed/racket 中就對應了 ->* 這個 type constructor：
+這些語法可以大部分的情況了，但 racket 本身允許可選參數的存在，在 typed/racket 中就對應了 ◊typed/rkt{->*} 這個 type constructor：
 
 ◊highlight['racket]{
 (: eval (->* (Term) (Env) Value))
@@ -70,11 +69,11 @@ typed/racket 顧名思義就是標註了 type 的 racket，與 racket/base 的�
   )
 }
 
-p.s. 根據我目前所知，->* 必須明確的寫成 declare/define 分開的形式，寫成 define 內涵型別定義的 form 時 type checker 還是會覺得 optional argument 沒被填上是 type mismatching。
+p.s. 根據我目前所知，◊typed/rkt{->*} 必須明確的寫成 declare/define 分開的形式，寫成 ◊typed/rkt{define} 內涵型別定義的 form 時 type checker 還是會覺得 optional argument 沒被填上是 type mismatching。
 
 ◊p{}
 
-而 racket 本來就支援 case-lambda(aka function overloading)，所以 typed/racket 也需要處理這個情況：
+而 racket 本來就支援 ◊typed/rkt{case-lambda}(aka function overloading)，所以 typed/racket 也需要處理這個情況：
 
 ◊highlight['racket]{
 (: append (All (a) (case->
@@ -91,7 +90,7 @@ p.s. 根據我目前所知，->* 必須明確的寫成 declare/define 分開的�
      (append l1 l2)]))
 }
 
-case-> 只有在 require/typed 的時候能用，不然參數想同的情況下 typed/racket 會把 x 被推導成 (U (Listof a) a)。
+◊typed/rkt{case->} 只有在 ◊typed/rkt{require/typed} 的時候能用，不然參數想同的情況下 typed/racket 會把 x 被推導成 (U (Listof a) a)。
 
 ◊p{}
 
@@ -116,7 +115,7 @@ struct 必定會引入新的型別，並且使用 nominal subtyping，下面提�
    [y : Real]))
 }
 
-現在表達式 (point 1 2) 的型別就會是 point，struct 可以有 super type：
+現在表達式 (point 1 2) 的型別就會是 point，◊typed/rkt{struct} 可以有 super type：
 
 ◊highlight['racket]{
 (struct dog animal ())
@@ -139,7 +138,7 @@ struct 必定會引入新的型別，並且使用 nominal subtyping，下面提�
 
 ◊h3{recursive type}
 
-type 之間互相參照就叫做 recursive type，在 typed/racket 裡頭可以用 U 與 define-type 來達成這個效果：
+type 之間互相參照就叫做 recursive type，在 typed/racket 裡頭可以用 ◊typed/rkt{U} 與 ◊typed/rkt{define-type} 來達成這個效果：
 
 ◊highlight['racket]{
 (define-type BinaryTree (U Number (Pair BinaryTree BinaryTree)))
@@ -160,7 +159,7 @@ type 之間互相參照就叫做 recursive type，在 typed/racket 裡頭可以�
 
 ◊h3{polymorphism}
 
-polymorphism 或是有些人只聽過 generic，我不打算分清楚他們的差別，以免讀者陷在定義上，這裏主要說的是參數多型，與 struct 那邊的 super type 不同，
+polymorphism 或是有些人只聽過 generic，我不打算分清楚他們的差別，以免讀者陷在定義上，這裏主要說的是參數多型，與 ◊typed/rkt{struct} 那邊的 super type 不同，
 現在先看一個簡單的範例：
 
 ◊highlight['racket]{
@@ -179,13 +178,13 @@ polymorphism 或是有些人只聽過 generic，我不打算分清楚他們的�
     (+ 1 (list-length (cdr lst)))))
 }
 
-All 對應邏輯裡面的 ∀ 符號，意思是對所有 A 都成立。
+◊typed/rkt{All} 對應邏輯裡面的 ◊typed/rkt{∀} 符號，意思是對所有 A 都成立。
 
 ◊h3{inst/ann}
 
 ◊h4{ann}
 
-ann 是 annotation 的縮寫，用來標記表達式 (expression) 的型別是什麼，總計有三種寫法：
+◊typed/rkt{ann} 是 annotation 的縮寫，用來標記表達式 (expression) 的型別是什麼，總計有三種寫法：
 
 ◊highlight['racket]{
 (let ([#{x : Number} 7]) x)
@@ -197,7 +196,7 @@ ann 是 annotation 的縮寫，用來標記表達式 (expression) 的型別是�
 
 ◊h4{inst}
 
-而 inst 就更重要了，為了基於 racket 許多內建的 case-lambda 跟 polymorphism function 上，有時候會遇到 type checker 沒辦法推導出正確型別的情況，這時候就需要 inst 提供 type argument 實例化 type：
+而 ◊typed/rkt{inst} 就更重要了，為了基於 racket 許多內建的 ◊typed/rkt{case-lambda} 跟 polymorphism function 上，有時候會遇到 type checker 沒辦法推導出正確型別的情況，這時候就需要 ◊typed/rkt{inst} 提供 type argument 實例化 type：
 
 ◊highlight['racket]{
 ;;; 這會撞到 Polymorphic function `foldl' could not be applied to arguments

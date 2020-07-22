@@ -1,6 +1,9 @@
 #lang racket
 
-(provide (all-defined-out))
+(provide (all-defined-out)
+         (all-from-out "lib/racket-doc-link.rkt"))
+
+(require "lib/racket-doc-link.rkt")
 
 (define (link href . elements)
   `(a ((href ,href)) ,@elements))

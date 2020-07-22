@@ -28,18 +28,17 @@ typed/racket 顧名思義就是標註了 type 的 racket，與 racket/base 的�
 0 : Integer [more precisely: Zero]
 1 : Integer [more precisely: Positive-Byte]</code></pre></div>
 
-可以看到一個奇特現象是 racket 的 type 經常有所謂的 more precisely 的標記，來說明存在更精確的型別存在，實際上怎麼做到的這裡不提，但這麼做的理由是為了支持所謂的 type refinement，
-可以讓 type checker 根據需要限縮型別。除此之外所有的值都可以是自己的 type: <div class="highlight"><pre><code>(ann 1 1)</code></pre></div> 是合法的標註。
+可以看到一個奇特現象是 racket 的 type 經常有所謂的 more precisely 的標記，來說明存在更精確的型別存在，實際上怎麼做到的這裡不提，但這麼做的理由是為了支持所謂的 type refinement，可以讓 type checker 根據需要限縮型別。除此之外所有的值都可以是自己的 type: <div class="highlight"><pre><code>(ann 1 1)</code></pre></div> 是合法的標註。
 
 <h3>函數類型</h3>
 
-我們用 -&gt; 這個 type constructor 建構函數類型，這在數學上的意思是蘊含，A-&gt;B 代表 A 蘊含 B，racket 裡照慣例用了前綴表達法 (-&gt; A B)，只要 A B 都是類型,則 (-&gt; A B) 是類型。
+我們用 <a href="http://docs.racket-lang.org/ts-reference/type-ref.html#(form._((lib._typed-racket/base-env/base-types-extra..rkt)._-~3e))" class="rkt-docs"><code>-&gt;</code></a> 這個 type constructor 建構函數類型，這在數學上的意思是蘊含，A-&gt;B 代表 A 蘊含 B，racket 裡照慣例用了前綴表達法 (-&gt; A B)，只要 A B 都是類型,則 (-&gt; A B) 是類型。
 所以下列都是合法的類型：
 
 <div class="highlight"><pre><code>(-&gt; Number Number Number)
 (-&gt; String String Boolean)</code></pre></div>
 
-對應 define，typed/racket 提供了 : 作為宣告型別的語法：
+對應 <a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._define))" class="rkt-docs"><code>define</code></a>，typed/racket 提供了 <a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._~3a))" class="rkt-docs"><code>:</code></a> 作為宣告型別的語法：
 
 <div class="highlight"><pre><code>(: add (-&gt; Number Number Number))
 (define (add x y)
@@ -48,7 +47,7 @@ typed/racket 顧名思義就是標註了 type 的 racket，與 racket/base 的�
 (define (same s1 s2)
   (eqv? s1 s2))</code></pre></div>
 
-然而也提供了修改過的 define：
+然而也提供了修改過的 <a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._define))" class="rkt-docs"><code>define</code></a>：
 
 <div class="highlight"><pre><code>(define (add [x : Number]
              [y : Number])
@@ -59,16 +58,18 @@ typed/racket 顧名思義就是標註了 type 的 racket，與 racket/base 的�
   : Boolean
   (eqv? s1 s2))</code></pre></div>
 
-這些語法可以大部分的情況了，但 racket 本身允許可選參數的存在，在 typed/racket 中就對應了 -&gt;* 這個 type constructor：
+這些語法可以大部分的情況了，但 racket 本身允許可選參數的存在，在 typed/racket 中就對應了 <a href="http://docs.racket-lang.org/ts-reference/type-ref.html#(form._((lib._typed-racket/base-env/base-types-extra..rkt)._-~3e*))" class="rkt-docs"><code>-&gt;*</code></a> 這個 type constructor：
 
 <div class="highlight"><pre><code>(: eval (-&gt;* (Term) (Env) Value))
 (define (eval term [env '()])
   ;;; ignore
   )</code></pre></div>
 
-p.s. 根據我目前所知，-&gt;* 必須明確的寫成 declare/define 分開的形式，寫成 define 內涵型別定義的 form 時 type checker 還是會覺得 optional argument 沒被填上是 type mismatching。
+p.s. 根據我目前所知，<a href="http://docs.racket-lang.org/ts-reference/type-ref.html#(form._((lib._typed-racket/base-env/base-types-extra..rkt)._-~3e*))" class="rkt-docs"><code>-&gt;*</code></a> 必須明確的寫成 declare/define 分開的形式，寫成 <a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._define))" class="rkt-docs"><code>define</code></a> 內涵型別定義的 form 時 type checker 還是會覺得 optional argument 沒被填上是 type mismatching。
 
-而 racket 本來就支援 case-lambda(aka function overloading)，所以 typed/racket 也需要處理這個情況：
+<p></p>
+
+而 racket 本來就支援 <a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._case-lambda))" class="rkt-docs"><code>case-lambda</code></a>(aka function overloading)，所以 typed/racket 也需要處理這個情況：
 
 <div class="highlight"><pre><code>(: append (All (a) (case-&gt;
                      [(Listof a) a -&gt; (Listof a)]
@@ -83,7 +84,9 @@ p.s. 根據我目前所知，-&gt;* 必須明確的寫成 declare/define 分開�
       [l2 : (Listof a)])
      (append l1 l2)]))</code></pre></div>
 
-case-&gt; 只有在 require/typed 的時候能用，不然參數想同的情況下 typed/racket 會把 x 被推導成 (U (Listof a) a)。
+<a href="http://docs.racket-lang.org/ts-reference/type-ref.html#(form._((lib._typed-racket/base-env/base-types-extra..rkt)._case-~3e))" class="rkt-docs"><code>case-&gt;</code></a> 只有在 <a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._require/typed))" class="rkt-docs"><code>require/typed</code></a> 的時候能用，不然參數想同的情況下 typed/racket 會把 x 被推導成 (U (Listof a) a)。
+
+<p></p>
 
 有趣(麻煩)的最後一點是 keyword argument：
 
@@ -102,7 +105,7 @@ struct 必定會引入新的型別，並且使用 nominal subtyping，下面提�
   ([x : Real]
    [y : Real]))</code></pre></div>
 
-現在表達式 (point 1 2) 的型別就會是 point，struct 可以有 super type：
+現在表達式 (point 1 2) 的型別就會是 point，<a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._struct))" class="rkt-docs"><code>struct</code></a> 可以有 super type：
 
 <div class="highlight"><pre><code>(struct dog animal ())</code></pre></div>
 
@@ -121,7 +124,7 @@ struct 必定會引入新的型別，並且使用 nominal subtyping，下面提�
 
 <h3>recursive type</h3>
 
-type 之間互相參照就叫做 recursive type，在 typed/racket 裡頭可以用 U 與 define-type 來達成這個效果：
+type 之間互相參照就叫做 recursive type，在 typed/racket 裡頭可以用 <a href="http://docs.racket-lang.org/ts-reference/type-ref.html#(form._((lib._typed-racket/base-env/base-types-extra..rkt)._.U))" class="rkt-docs"><code>U</code></a> 與 <a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed/racket/base..rkt)._define-type))" class="rkt-docs"><code>define-type</code></a> 來達成這個效果：
 
 <div class="highlight"><pre><code>(define-type BinaryTree (U Number (Pair BinaryTree BinaryTree)))
 
@@ -138,7 +141,7 @@ type 之間互相參照就叫做 recursive type，在 typed/racket 裡頭可以�
 
 <h3>polymorphism</h3>
 
-polymorphism 或是有些人只聽過 generic，我不打算分清楚他們的差別，以免讀者陷在定義上，這裏主要說的是參數多型，與 struct 那邊的 super type 不同，
+polymorphism 或是有些人只聽過 generic，我不打算分清楚他們的差別，以免讀者陷在定義上，這裏主要說的是參數多型，與 <a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._struct))" class="rkt-docs"><code>struct</code></a> 那邊的 super type 不同，
 現在先看一個簡單的範例：
 
 <div class="highlight"><pre><code>(define-type (Opt a) (U None (Some a)))
@@ -153,7 +156,28 @@ polymorphism 或是有些人只聽過 generic，我不打算分清楚他們的�
     0
     (+ 1 (list-length (cdr lst)))))</code></pre></div>
 
-All 對應邏輯裡面的 ∀ 符號，意思是對所有 A 都成立。
+<a href="http://docs.racket-lang.org/ts-reference/type-ref.html#(form._((lib._typed-racket/base-env/base-types-extra..rkt)._.All))" class="rkt-docs"><code>All</code></a> 對應邏輯裡面的 <a href="http://docs.racket-lang.org/ts-reference/type-ref.html#(form._((lib._typed-racket/base-env/base-types-extra..rkt)._~e2~88~80))" class="rkt-docs"><code>∀</code></a> 符號，意思是對所有 A 都成立。
+
+<h3>inst/ann</h3>
+
+<h4>ann</h4>
+
+ann 是 annotation 的縮寫，用來標記表達式 (expression) 的型別是什麼，總計有三種寫法：
+
+<div class="highlight"><pre><code>(let ([#{x : Number} 7]) x)
+(ann x Number)
+#:{x :: Number}</code></pre></div>
+
+由於 typed/racket 有 precisely type，所以用 annotation 有時候是有需要的(笑)。
+
+<h4>inst</h4>
+
+而 inst 就更重要了，為了基於 racket 許多內建的 case-lambda 跟 polymorphism function 上，有時候會遇到 type checker 沒辦法推導出正確型別的情況，這時候就需要 inst 提供 type argument 實例化 type：
+
+<div class="highlight"><pre><code>;;; 這會撞到 Polymorphic function `foldl' could not be applied to arguments
+(foldl cons null (list 1 2 3 4))
+;;; 解法
+(foldl (cons Integer Integer) null (list 1 2 3 4))</code></pre></div>
 
 <h3>interaction</h3>
 

@@ -49,7 +49,7 @@ e ; 不是，我就只是叫 e 的變數 XD
 
 <h3>控制流</h3>
 
-作為 Lisp 的主要分支之一,racket 到處都是 () [] 等 S expression,並且稱呼 define 等特殊的表達式為 form。
+作為 Lisp 的主要分支之一，racket 到處都是 () [] 等 S expression,並且稱呼 <a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" class="rkt-docs"><code>define</code></a> 等特殊的表達式為 form。
 分辨函數與 form 在 racket 中並不容易,但影響其實不大,因為很少有人會需要弄清楚兩者的差別。
 [] 與 () 可以隨意替換使用,這有助於改善可讀性。例如 match 這個用來做 pattern matching 的 form:
 
@@ -68,7 +68,7 @@ racket 有數種控制流 form：
 ; 1
 ;;; cond 後可以接任意個 cond-clause
 ; 其中每個 cond-clause 都有 test-expr 或是 else pattern
-; 當 test-expr 成立，就會執行整串 body，就像 number? x 展示的那樣
+; 當 test-expr 成立，就會執行整串 body，就像 number? x 展示的那樣
 (define (is x)
   (cond
     [(number? x)

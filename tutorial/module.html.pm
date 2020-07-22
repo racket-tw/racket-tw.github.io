@@ -24,7 +24,7 @@ racket 的每一個檔案本身都會是一個模組(module)，例如：
 (require "hello.rkt")
 }
 
-引用這個模組中的定義。racket 將 require 後的字串解析為相對路徑，所以也可以用 "../xxx.rkt" 等方式引用。
+引用這個模組中的定義。racket 將 ◊rkt{require} 後的字串解析為相對路徑，所以也可以用 "../xxx.rkt" 等方式引用。
 
 ◊h3{Collection}
 
@@ -40,7 +40,7 @@ racket 的每一個檔案本身都會是一個模組(module)，例如：
 除了內建的 ◊em{Collection}，可以用 raco pkg 指令取得第三方程式庫：
 
 ◊highlight['bash]{
-pkg install cur
+raco pkg install cur
 }
 
 ◊h3{專案}
