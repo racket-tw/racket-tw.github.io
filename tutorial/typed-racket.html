@@ -6,6 +6,8 @@
   <meta http-equiv="Expires" content="0" />
   <title>typed/racket</title>
   <link rel="stylesheet" type="text/css" href="/styles.css" />
+  <script src="/path/to/highlight.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
 <root><h1>typed/racket</h1>
@@ -162,7 +164,7 @@ polymorphism 或是有些人只聽過 generic，我不打算分清楚他們的�
 
 <h4>ann</h4>
 
-ann 是 annotation 的縮寫，用來標記表達式 (expression) 的型別是什麼，總計有三種寫法：
+<a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._ann))" class="rkt-docs"><code>ann</code></a> 是 annotation 的縮寫，用來標記表達式 (expression) 的型別是什麼，總計有三種寫法：
 
 <div class="highlight"><pre><code>(let ([#{x : Number} 7]) x)
 (ann x Number)
@@ -172,7 +174,7 @@ ann 是 annotation 的縮寫，用來標記表達式 (expression) 的型別是�
 
 <h4>inst</h4>
 
-而 inst 就更重要了，為了基於 racket 許多內建的 case-lambda 跟 polymorphism function 上，有時候會遇到 type checker 沒辦法推導出正確型別的情況，這時候就需要 inst 提供 type argument 實例化 type：
+而 <a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._inst))" class="rkt-docs"><code>inst</code></a> 就更重要了，為了基於 racket 許多內建的 <a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._case-lambda))" class="rkt-docs"><code>case-lambda</code></a> 跟 polymorphism function 上，有時候會遇到 type checker 沒辦法推導出正確型別的情況，這時候就需要 <a href="http://docs.racket-lang.org/ts-reference/special-forms.html#(form._((lib._typed-racket/base-env/prims..rkt)._inst))" class="rkt-docs"><code>inst</code></a> 提供 type argument 實例化 type：
 
 <div class="highlight"><pre><code>;;; 這會撞到 Polymorphic function `foldl' could not be applied to arguments
 (foldl cons null (list 1 2 3 4))
