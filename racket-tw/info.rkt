@@ -3,5 +3,5 @@
 (define deps '("base"))
 (define build-deps '("scribble-lib"
                      "racket-doc"))
-(define scribblings '(("src/index.scrbl" (multi-page))))
+(define scribblings '(("scribblings/racket-tw.scrbl" ())))
 (define pkg-authors '(dannypsnl))
