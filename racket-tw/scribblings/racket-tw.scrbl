@@ -19,8 +19,24 @@ racket 源於 PLT Scheme 這個專案，至今也仍然遵循 R7RS 這個 scheme
 
 @(link "https://racket-lang.org/" "官網")
 
-@section[#:tag "ref-quick-start"]{Quick Start}
-@author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
+@subsection{教學連結}
+
+@(itemlist
+  @item{@secref["ref-quick-start"]}
+  @item{@(link "/tutorial/module.html" "Module")}
+  @item{@(link "/tutorial/typed-racket.html" "typed/racket")}
+  @item{預定：macro}
+  @item{預定：continuation})
+
+@section{專案}
+
+@(itemlist
+  @item{@(link "https://github.com/racket-tw/sauron" "sauron")：A Racket IDE}
+  @item{@(link "https://github.com/racket-tw/cc" "cc")：用 racket 寫的 c to x86/64 compiler})
+
+@section{教學}
+
+@subsection[#:tag "ref-quick-start"]{Quick Start}
 
 racket 有一個奇特的怪僻，就是每個檔案都必須標明自己的
 
@@ -32,7 +48,7 @@ racket 有一個奇特的怪僻，就是每個檔案都必須標明自己的
 
 就可以了。
 
-@subsection{常見的值與表達式}
+@subsubsection{常見的值與表達式}
 
 racket 作為一個實用的程式語言，自然有熟悉的概念出現，下面就簡單條列一些常見的值與表達式吧：
 
@@ -61,7 +77,7 @@ e ; 不是，我就只是叫 e 的變數 XD
 (f a b c) ; 函數呼叫，函數是 f，參數是 a b c
 )
 
-@subsection{控制流}
+@subsubsection{控制流}
 
 作為 Lisp 的主要分支之一，racket 到處都是 () [] 等 S expression，並且稱呼 @code[#:lang "racket"]{define} 等特殊的表達式為 form。
 分辨函數與 form 在 racket 中並不容易,但影響其實不大,因為很少有人會需要弄清楚兩者的差別。
@@ -116,7 +132,7 @@ racket 有數種控制流 form：
   @item{@(link "https://docs.racket-lang.org/reference/if.html" "if/cond/and/or")}
 )
 
-@subsection{提前中斷}
+@subsubsection{提前中斷}
 
 在 racket 中有兩點需要特別注意：
 
@@ -141,22 +157,7 @@ racket 有數種控制流 form：
 
 雖然在這個案例裡面內建 return 的語言更方便，但 @elem{continuation} 提供了更多功能，不過這邊就不深入介紹，之後再另開文章寫這個 XD。
 
-@subsection{總結}
+@subsubsection{總結}
 
 希望這段超短教學可以讓讀者看懂一些 racket 的程式了，如果覺得有哪些資訊也應該放進這篇裡面可以寄信告訴我，
 如果有想了解的內容但還沒有相關教學可以 @(link "https://github.com/racket-tw/racket-tw.github.io/issues/new" "開新 issue")。
-
-@subsection{教學連結}
-
-@(itemlist
-  @item{@secref[#:doc 'ref-quick-start]{Quick Start}}
-  @item{@(link "/tutorial/module.html" "Module")}
-  @item{@(link "/tutorial/typed-racket.html" "typed/racket")}
-  @item{預定：macro}
-  @item{預定：continuation})
-
-@section{專案}
-
-@(itemlist
-  @item{@(link "https://github.com/racket-tw/sauron" "sauron")：A Racket IDE}
-  @item{@(link "https://github.com/racket-tw/cc" "cc")：用 racket 寫的 c to x86/64 compiler})
