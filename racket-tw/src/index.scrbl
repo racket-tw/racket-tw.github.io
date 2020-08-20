@@ -17,8 +17,12 @@ racket 源於 PLT Scheme 這個專案，至今也仍然遵循 R7RS 這個 scheme
 
 @subsection{教學連結}
 
+@(require (for-label racket))
+@(define ref-quick-start
+   '(lib "src/tutorial/quick-start.scrbl"))
+
 @(itemlist
-  @item{@(link "/tutorial/quick-start.html" "Quick Start")}
+  @item{@italic{@secref[#:doc ref-quick-start]{Quick Start}}}
   @item{@(link "/tutorial/module.html" "Module")}
   @item{@(link "/tutorial/typed-racket.html" "typed/racket")}
   @item{預定：macro}

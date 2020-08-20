@@ -1,4 +1,4 @@
-#lang pollen
+#lang scribble/manual
 
 ◊(require pollen/unstable/pygments)
 
