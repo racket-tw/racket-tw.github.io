@@ -18,7 +18,7 @@ racket 有一個奇特的怪僻，就是每個檔案都必須標明自己的
 
 racket 作為一個實用的程式語言，自然有熟悉的概念出現，下面就簡單條列一些常見的值與表達式吧：
 
-@(racketblock
+@codeblock|{
 ;;; 註解是用 ; 為開頭
 "我是字串" ; 字串
 #t ; True
@@ -41,7 +41,7 @@ e ; 不是，我就只是叫 e 的變數 XD
 (set! x 2) ; 重綁定 x(a.k.a. 賦值)
 
 (f a b c) ; 函數呼叫，函數是 f，參數是 a b c
-)
+}|
 
 @section{控制流}
 
@@ -58,7 +58,7 @@ e ; 不是，我就只是叫 e 的變數 XD
 
 racket 有數種控制流 form：
 
-@(racketblock
+@codeblock|{
 (define condition? (= 1 1))
 ;;; if form 應該是最簡單的，條件、then-expr、else-expr
 (if condition?
@@ -88,7 +88,7 @@ racket 有數種控制流 form：
     [(cons car cdr) (reduce cdr (+ r car))]))
 (reduce '(1 2 3))
 ; 6
-)
+}|
 
 更多資訊
 
@@ -107,7 +107,7 @@ racket 有數種控制流 form：
 
 等等，看到第二點先別急著說這什麼垃圾 www，雖然沒有內建 return 或是 exception，但 racket 提供了更強大的工具 ◊em{continuation}：
 
-@(racketblock
+@codeblock|{
 (define (foo x)
   (let/cc return
     (when (string? x)
@@ -119,7 +119,7 @@ racket 有數種控制流 form：
 ;;; "a"
 (foo 'a)
 ;;; 1
-)
+}|
 
 雖然在這個案例裡面內建 return 的語言更方便，但 @elem{continuation} 提供了更多功能，不過這邊就不深入介紹，之後再另開文章寫這個 XD。
 
