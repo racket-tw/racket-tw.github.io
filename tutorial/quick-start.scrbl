@@ -1,4 +1,5 @@
 #lang scribble/manual
+@(require (for-label racket))
 
 @title{Quick Start}
 @author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
