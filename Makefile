@@ -17,6 +17,7 @@ build: dist/index.html dist/tutorial/quick-start.html dist/tutorial/module.html
 
 .PHONY: publish
 publish: build
+	@cd dist; git pull origin master
 	@cd dist; git add -A
 	@cd dist; git commit -m "update $$(date +%Y%m%d%H%M%s)"
 	@cd dist; git push origin master
