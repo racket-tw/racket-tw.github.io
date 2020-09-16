@@ -12,7 +12,7 @@
 
 @section{源頭}
 
-racket 源於 PLT Scheme 這個專案，至今也仍然遵循 R7RS 這個 scheme 標準並擴展，某種程度上說他們是同一個語言也還行XD。
+racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響，某種程度上說他們是同一個語言也還行XD。
 
 @section{連結}
 
