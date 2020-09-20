@@ -16,8 +16,6 @@ racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響�
 
 @section{連結}
 
-@(link "https://racket-lang.org/" "官網")
-
 @subsection{教學連結}
 
 @itemlist[
@@ -26,6 +24,14 @@ racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響�
   @item{@(link "/tutorial/typed-racket.html" "typed/racket")}
   @item{預定：macro}
   @item{預定：continuation}
+  ]
+
+@subsection{其他}
+
+@itemlist[
+  @item{@link["https://racket-lang.org/" "官網"]}
+  @item{@link["https://docs.racket-lang.org/" "Racket Document"]}
+  @item{@link["https://pkgs.racket-lang.org/" "Racket Packages"]}
   ]
 
 @section{專案}
