@@ -1,4 +1,5 @@
 #lang scribble/manual
+@(require (for-label typed/racket/base))
 
 @title{typed/racket}
 @author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
