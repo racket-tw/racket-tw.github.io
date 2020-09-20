@@ -125,5 +125,4 @@ racket 有數種控制流 form：
 
 @section{總結}
 
-希望這段超短教學可以讓讀者看懂一些 racket 的程式了，如果覺得有哪些資訊也應該放進這篇裡面可以寄信告訴我，
-如果有想了解的內容但還沒有相關教學可以 @(link "https://github.com/racket-tw/racket-tw.github.io/issues/new" "開新 issue")。
+希望這段超短教學可以讓讀者看懂一些 racket 的程式了，如果覺得有哪些資訊也應該放進這篇裡面可以寄信告訴我，如果有想了解的內容但還沒有相關教學可以 @(link "https://github.com/racket-tw/racket-tw.github.io/issues/new" "開新 issue")。

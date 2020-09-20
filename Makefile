@@ -11,9 +11,14 @@ dist/tutorial/quick-start.html: dist/tutorial tutorial/quick-start.scrbl
 	@cd dist/tutorial; $(SCRBL) ../../tutorial/quick-start.scrbl
 dist/tutorial/module.html: dist/tutorial tutorial/module.scrbl
 	@cd dist/tutorial; $(SCRBL) ../../tutorial/module.scrbl
+dist/tutorial/typed-racket.html: dist/tutorial tutorial/typed-racket.scrbl
+	@cd dist/tutorial; $(SCRBL) ../../tutorial/typed-racket.scrbl
 
 .PHONY: build
-build: dist/index.html dist/tutorial/quick-start.html dist/tutorial/module.html
+build: dist/index.html \
+	dist/tutorial/quick-start.html \
+	dist/tutorial/module.html \
+	dist/tutorial/typed-racket.html
 
 .PHONY: publish
 publish: build
