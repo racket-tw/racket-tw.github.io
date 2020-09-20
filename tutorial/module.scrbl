@@ -1,5 +1,6 @@
 #lang scribble/manual
-@(require (for-label racket))
+@(require (for-label racket)
+          scribble/example)
 
 @title{Module}
 @author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
@@ -90,15 +91,14 @@ raco pkg remove <collection-name>
 語法僅僅是表象這個說法在 racket 中發揮的淋漓盡致，最常見的 module language 就是 racket、racket/base。
 例如說我們可以在 REPL 裡面打：
 
-@(racketblock
-> (module f racket
-    (provide (except-out (all-from-out racket) lambda)
-             (rename-out [lambda function])))
-> (module use 'f
-    ((function (x) x) 1))
-> (require 'use)
-1
-)
+@examples[
+(module f racket
+  (provide (except-out (all-from-out racket) lambda)
+           (rename-out [lambda function])))
+(module use 'f
+  ((function (x) x) 1))
+(require 'use)
+]
 
 暫時不用理解 provide 裡面 except-out rename-out 等等奇怪的東西。
 我們只關心 module 語法，它接受 name 以及一個可選參數 module。這個 module provide 的 form 會成為該 module 的語言基礎。
