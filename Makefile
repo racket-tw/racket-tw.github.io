@@ -23,5 +23,5 @@ build: dist/index.html \
 .PHONY: publish
 publish: build
 	@cd dist; git add -A
-	@cd dist; git commit -m "update $$(date +%Y%m%d%H%M%s)"
+	@cd dist; git commit -m "update $$(date +%Y/%m/%d-%H:%M:%s)"
 	@cd dist; git push origin master
