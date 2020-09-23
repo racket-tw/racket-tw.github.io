@@ -27,8 +27,7 @@
 
 @section{函數類型}
 
-我們用 @code{->} 這個 type constructor 建構函數類型，@code{->} 在數學上的意思是蘊含，A->B 代表 A 蘊含 B，racket 裡照慣例用了前綴表達法 @code{(-> A B)}，只要 @code{A} @code{B} 都是類型,則 @code{(-> A B)} 是類型。
-所以下列都是合法的類型：
+我們用 @code{->} 這個 type constructor 建構函數類型，@code{->} 在數學上的意思是蘊含，A->B 代表 A 蘊含 B，racket 裡照慣例用了前綴表達法 @code{(-> A B)}，只要 @code{A} @code{B} 都是類型,則 @code{(-> A B)} 是類型。所以下列都是合法的類型：
 
 @codeblock{
 (-> Number Number Number)
@@ -73,9 +72,9 @@ p.s. 根據我目前所知，@code{->*} 必須明確的寫成 declare/define 分
 而 racket 本來就支援 @code{case-lambda}(aka function overloading)，所以 typed/racket 也需要處理這個情況：
 
 @codeblock{
-(: append (All (a) (case->
-                     [(Listof a) a -> (Listof a)]
-                     [(Listof a) (Listof a) -> (Listof a)])))
+(: append2 (All (a) (case->
+                      [(Listof a) a -> (Listof a)]
+                      [(Listof a) (Listof a) -> (Listof a)])))
 ;;; 直接定義
 (define append2
   (case-lambda #:forall (a)
@@ -87,9 +86,9 @@ p.s. 根據我目前所知，@code{->*} 必須明確的寫成 declare/define 分
      (append l1 l2)]))
 }
 
-@codeblock{case->} 只有在 @code{require/typed} 的時候能用，不然參數想同的情況下 typed/racket 會把 @code{x} 被推導成 @code{(U (Listof a) a)}。
+@codeblock{case->} 只有在 @code{require/typed} 的時候能用，不然參數相同的情況下 typed/racket 會把 @code{x} 推導成 @code{(U (Listof a) a)}。
 
-有趣(麻煩)的最後一點是 keyword argument：
+有趣(麻煩)的最後一種參數是 keyword argument：
 
 @codeblock{
 (: position (->* (#:line Integer #:column Integer #:filename String) (#:msg String) Position))
@@ -98,7 +97,7 @@ p.s. 根據我目前所知，@code{->*} 必須明確的寫成 declare/define 分
   )
 }
 
-一般形式的 keyword argument 應該不是什麼大問題，但 optional keyword argument 要注意 pre-binding 不能把 keyword 自己綁進去，而是要把它的對應變數包進去。
+一般形式的 keyword argument 應該不是什麼大問題，但 optional keyword argument 要注意 pre-binding 不能把 keyword 自己綁進去，而是要把它的對應變數包進去，一如 @code{#:msg [msg ""]} 所示。
 
 @section{struct}
 
@@ -120,7 +119,7 @@ struct 必定會引入新的型別，並且使用 nominal subtyping，下面提�
 
 @section{union type}
 
-為了讓許多原先存在於 racket 的概念運作，也是為了更複雜的應用，typed/racket 提供了 union type，語法 @code{(U a b c)} 代表 這個型別可能是 @code{a} @code{b} 或 @code{c}：
+為了讓許多原先存在於 racket 的概念運作，也是為了更複雜的應用，typed/racket 提供了 union type，語法 @code{(U a b c)} 代表 這個型別可能是 @code{a}、@code{b} 或 @code{c}：
 
 @codeblock{
 (let ([n 10])
@@ -129,11 +128,11 @@ struct 必定會引入新的型別，並且使用 nominal subtyping，下面提�
     'is-odd))
 }
 
-這個表達式的型別就是 @code{Symbol [more precisely: (U 'is-even 'is-odd)]} (值自己一定是自己的型別)
+這個表達式的型別就是 @code{Symbol [more precisely: (U 'is-even 'is-odd)]} (值本身是自己的型別)
 
 @section{recursive type}
 
-type 之間互相參照就叫做 recursive type，在 typed/racket 裡頭可以用 @code{U} 與 @code{define-type} 來達成：
+type 之間互相參照就叫做 recursive type，在 typed/racket 裡可以用 @code{U} 與 @code{define-type} 來達成：
 
 @codeblock{
 (define-type BinaryTree (U Number (Pair BinaryTree BinaryTree)))
@@ -153,8 +152,7 @@ type 之間互相參照就叫做 recursive type，在 typed/racket 裡頭可以�
 
 @section{polymorphism}
 
-polymorphism 或是有些人只聽過 generic，我不打算分清楚他們的差別，以免讀者陷在裡面，這裏主要說的是參數多型，與 @code{struct} 那邊的 super type 不同，
-現在先看一個簡單的範例：
+polymorphism 或是有些人只聽過 generic，我不打算分清楚他們的差別，以免讀者陷在裡面，這裏主要說的是參數多型，與 @code{struct} 那邊的 super type 不同，現在先來看一個簡單的範例：
 
 @codeblock{
 (define-type (Opt a) (U None (Some a)))
@@ -190,7 +188,7 @@ polymorphism 或是有些人只聽過 generic，我不打算分清楚他們的�
 
 @subsection{inst}
 
-而 @code{inst} 就更重要了，為了基於 racket 許多內建的 @code{case-lambda} 跟 polymorphism function 上，有時候會遇到 type checker 沒辦法推導出正確型別的情況，這時候就需要 @code{inst} 提供 type argument 實例化 type：
+而 @code{inst} 就更重要了，為了基於 racket 許多內建的 @code{case-lambda} 跟 polymorphism function 上，有時候會遇到 type checker 沒辦法推導出正確型別的情況，這時候就需要 @code{inst} 提供 type argument 來實例化 type：
 
 @codeblock{
 ;;; 這會撞到 Polymorphic function `foldl' could not be applied to arguments
