@@ -3,22 +3,15 @@ SCRBL := scribble ++main-xref-in --redirect-main http://docs.racket-lang.org/
 dist:
 	@git clone git@github.com:racket-tw/racket-tw.github.io.git dist -b master
 
-dist/index.html: dist index.scrbl
-	@cd dist; $(SCRBL) ../index.scrbl
-dist/tutorial: dist
-	@mkdir -p dist/tutorial
-dist/tutorial/quick-start.html: dist/tutorial tutorial/quick-start.scrbl
-	@cd dist/tutorial; $(SCRBL) ../../tutorial/quick-start.scrbl
-dist/tutorial/module.html: dist/tutorial tutorial/module.scrbl
-	@cd dist/tutorial; $(SCRBL) ../../tutorial/module.scrbl
-dist/tutorial/typed-racket.html: dist/tutorial tutorial/typed-racket.scrbl
-	@cd dist/tutorial; $(SCRBL) ../../tutorial/typed-racket.scrbl
+OBJS = $(patsubst %.scrbl, %.html, $(shell ls **/*.scrbl))
+OUT_DIR = dist
+OUT_OBJS = $(addprefix $(OUT_DIR)/, $(OBJS))
+$(OUT_DIR)/%.html: %.scrbl
+	@mkdir -p $(dir $@)
+	@$(SCRBL) --dest $(dir $@) $<
 
 .PHONY: build
-build: dist/index.html \
-	dist/tutorial/quick-start.html \
-	dist/tutorial/module.html \
-	dist/tutorial/typed-racket.html
+build: dist $(OUT_OBJS)
 
 .PHONY: publish
 publish: build
