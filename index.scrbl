@@ -21,6 +21,7 @@ racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響�
   @item{@(link "/tutorial/module.html" "Module")}
   @item{@(link "/tutorial/typed-racket.html" "typed/racket")}
   @item{預定：macro}
+  @item{預定：collection}
   @item{預定：continuation}
   ]
 

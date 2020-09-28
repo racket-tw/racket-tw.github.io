@@ -87,9 +87,7 @@ raco pkg remove <collection-name>
 
 @section{#lang}
 
-@bold{#lang} 是 racket 的語言核心，這是 racket 裡面唯一不可以拿掉的部分，事實上 @bold{#lang} xxx 代表的是以 xxx 包裹這個模組的意思。
-語法僅僅是表象這個說法在 racket 中發揮的淋漓盡致，最常見的 module language 就是 racket、racket/base。
-例如說我們可以在 REPL 裡面打：
+@bold{#lang} 是 racket 的語言核心，這是 racket 裡面唯一不可以拿掉的部分，事實上 @bold{#lang} xxx 代表的是以 xxx 包裹這個模組的意思。語法僅僅是表象這個說法在 racket 中發揮的淋漓盡致，最常見的 module language 就是 racket、racket/base。例如說我們可以在 REPL 裡面打：
 
 @examples[
 (module f racket
@@ -100,9 +98,7 @@ raco pkg remove <collection-name>
 (require 'use)
 ]
 
-暫時不用理解 provide 裡面 except-out rename-out 等等奇怪的東西。
-我們只關心 module 語法，它接受 name 以及一個可選參數 module。這個 module provide 的 form 會成為該 module 的語言基礎。
-而 @bold{#lang} 也只是 module 的語法糖。
+暫時不用理解 provide 裡面 except-out rename-out 等等奇怪的東西。我們只關心 module 語法，它接受 name 以及一個可選參數 module。這個 module provide 的 form 會成為該 module 的語言基礎。而 @bold{#lang} 也只是 module 的語法糖。
 
 @codeblock|{
 #lang s-exp "html.rkt"
@@ -115,5 +111,4 @@ raco pkg remove <collection-name>
 
 @section{總結}
 
-希望這段教學可以讓讀者看懂怎麼用 module 了，如果覺得有哪些資訊也應該放進這篇裡面可以寄信(◊author-mail)告訴我，
-如果有想了解的內容但還沒有相關教學可以 @link["https://github.com/racket-tw/racket-tw.github.io/issues/new" "開新issue"]。
+希望這段教學可以讓讀者看懂怎麼用 module 了，如果覺得有哪些資訊也應該放進這篇裡面可以寄信(◊author-mail)告訴我，如果有想了解的內容但還沒有相關教學可以 @link["https://github.com/racket-tw/racket-tw.github.io/issues/new" "開新issue"]。
