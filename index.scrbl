@@ -25,6 +25,12 @@ racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響�
   @item{預定：continuation}
   ]
 
+@subsection{Blog}
+
+@itemlist[
+  @item{@link["/post/from-template.html" "from-template"]}
+  ]
+
 @subsection{其他}
 
 @itemlist[
