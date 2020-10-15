@@ -4,4 +4,9 @@ Site of racket.tw
 
 ### Development
 
-FIXME
+```sh
+# only build to `dist/`
+make build
+# publish to site
+make publish
+```
