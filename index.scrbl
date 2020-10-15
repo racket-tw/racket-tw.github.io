@@ -28,6 +28,7 @@ racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響�
 @subsection{Blog}
 
 @itemlist[
+  @item{@link["/post/semilit.html" "semilit"]}
   @item{@link["/post/from-template.html" "from-template"]}
   ]
 
