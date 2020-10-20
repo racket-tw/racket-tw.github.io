@@ -35,6 +35,7 @@ racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響�
 @subsection{其他}
 
 @itemlist[
+  @item{@link["https://try-racket.defn.io/" "線上運行環境"]}
   @item{@link["https://racket-lang.org/" "官網"]}
   @item{@link["https://docs.racket-lang.org/" "Racket Document"]}
   @item{@link["https://pkgs.racket-lang.org/" "Racket Packages"]}
