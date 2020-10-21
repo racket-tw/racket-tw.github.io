@@ -2,7 +2,7 @@
 @(require (for-label racket))
 
 @title{Quick Start}
-@author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
+@author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
 
 racket 有一個奇特的怪僻，就是每個檔案都必須標明自己的
 

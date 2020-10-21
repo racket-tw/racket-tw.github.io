@@ -3,7 +3,7 @@
           scribble/example)
 
 @title{Module}
-@author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
+@author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
 
 @section{檔案}
 

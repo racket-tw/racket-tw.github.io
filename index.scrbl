@@ -1,7 +1,7 @@
 #lang scribble/manual
 
 @title{Racket Taiwan}
-@author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
+@author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
 
 嗨，這裡是 racket.tw，我的目標就是在台灣推廣 racket 這個大家應該不怎麼熟悉的程式語言。
 目前教學暫時會著重在寫給已經有程式經驗的讀者，對初學者就比較抱歉了QQ，畢竟目前只有我一個人弄。

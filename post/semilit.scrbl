@@ -3,7 +3,7 @@
                      semilit))
 
 @title{semilit}
-@author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
+@author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
 
 semilit 是一個文學編程用的語言模組，可以通過以下指令安裝
 

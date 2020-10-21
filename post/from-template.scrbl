@@ -2,7 +2,7 @@
 @(require (for-label racket))
 
 @title{from-template}
-@author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
+@author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
 
 from-template 是一個項目模板產生器，這裏簡單介紹它怎麼安裝及使用。
 

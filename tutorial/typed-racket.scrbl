@@ -2,7 +2,7 @@
 @(require (for-label typed/racket/base))
 
 @title{typed/racket}
-@author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
+@author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
 
 雖說 Racket 之中語法並沒有很重要，但還是需要認識裡面常用的 dialect，這篇就是要介紹 typed/racket 這個 dialect。typed/racket 顧名思義就是標註了 type 的 racket，與 racket/base 的語法基本相通，但加入了一些型別標註(annotation)的語法以及給予某些語法變體來幫助使用者寫出更簡潔的程式(雖然這還蠻看人的那些語法)。
 
