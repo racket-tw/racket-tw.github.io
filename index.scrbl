@@ -28,8 +28,8 @@ racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響�
 @subsection{Blog}
 
 @itemlist[
-  @item{@link["/post/2020-10-19-semilit.html" "2020/10/19 semilit"]}
-  @item{@link["/post/2020-10-10-from-template.html" "2020/10/10 from-template"]}
+  @item{@link["/post/2020-10-15-semilit.html" "2020/10/15 semilit"]}
+  @item{@link["/post/2020-10-07-from-template.html" "2020/10/07 from-template"]}
   ]
 
 @subsection{其他}
