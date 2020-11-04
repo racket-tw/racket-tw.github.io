@@ -52,37 +52,42 @@ raco pkg new <collection-name>
 raco pkg install --auto
 }|
 
-注意 install --auto 那行不能省略，不然會看到 test 指令瘋狂失敗 www。
+注意 install --auto 那行不能省略，不然會看到 test 指令瘋狂失敗(笑)。
 
-在任意一個專案中的檔案都可以寫測試：
+@subsection{測試}
 
-@codeblock|{
-#lang racket
+測試在實際的工作上非常有用，而 Racket 也支援這樣的功能，我們在任意一個專案中的檔案都可以寫測試。首先需要宣告一個特殊的模組，用 @code{module+} 這個特殊的 form 來宣告一個 @link["https://docs.racket-lang.org/reference/eval-model.html#%28tech._submodule%29" "submodule"]，並引入 @link["https://docs.racket-lang.org/rackunit/" "rackunit"] 這個單元測試框架：
 
+@(racketblock
 (module+ test
   (require rackunit))
 
-(define x 1)
-
 (module+ test
-  (check-equal? 1 x))
-}|
+  (check-eq? 1 2))
+)
 
-用以下指令執行測試：
+@link["https://docs.racket-lang.org/reference/eval-model.html#%28tech._submodule%29" "submodule"] 可以重複宣告，對我們來說只要知道最後會被認為是同一個 @link["https://docs.racket-lang.org/reference/eval-model.html#%28tech._submodule%29" "submodule"] 就可以了，因此我們也可以寫成
 
-@codeblock|{
-;raco test .
-}|
+@(racketblock
+(module+ test
+  (require rackunit)
 
-如果最後刪除這個目錄，也要記得刪除 raco 中的紀錄：
+  (check-eq? 1 2))
+)
+
+然後用指令 raco test . 執行測試。
+
+如果未來刪除這個 collection 目錄，也要記得刪除 raco 中的紀錄：
 
 @codeblock|{
 raco pkg remove <collection-name>
 }|
 
-不然就會造成 raco 一直找不到該 collection 而沒辦法正常運作。
+不然就會造成 raco 在其他專案使用時一直找不到該 collection 而沒辦法正常運作。
 
-如果要開發 executable，在 main.rkt(生成的專案裡會有) 裡的 module+ main 裡面寫的程式就會是 executable 執行的東西，而仍然可以引用這個 collection 不會執行到這些程式。
+@subsection{Executable}
+
+如果要開發 executable，在 main.rkt(生成的專案裡會有) 裡的 module+ main 裡面寫的程式就是 executable 會執行的東西，另外引用這個 collection 並不會執行到這些程式。可以用指令 @code{racket -l <collection-name>} 來執行 collection。
 
 @section{#lang}
 
