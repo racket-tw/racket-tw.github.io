@@ -56,7 +56,7 @@ raco pkg install --auto
 
 @subsection{測試}
 
-測試在實際的工作上非常有用，而 Racket 也支援這樣的功能，我們在任意一個專案中的檔案都可以寫測試。首先需要宣告一個特殊的模組，用 @code{module+} 這個特殊的 form 來宣告一個 @link["https://docs.racket-lang.org/reference/eval-model.html#%28tech._submodule%29" "submodule"]，並引入 @link["https://docs.racket-lang.org/rackunit/" "rackunit"] 這個單元測試框架：
+測試在實際的工作上非常有用，而 Racket 也支援這樣的功能，我們在任意一個專案中的檔案都可以寫測試。首先需要宣告一個特殊的模組，用 @code{module+} 這個特殊的 form 來宣告一個 @link["https://docs.racket-lang.org/reference/eval-model.html#%28tech._submodule%29" "submodule"]，並引入 @racketmodname[rackunit] 這個單元測試框架：
 
 @(racketblock
 (module+ test
