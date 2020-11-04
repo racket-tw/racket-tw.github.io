@@ -77,6 +77,12 @@ raco pkg install --auto
 
 然後用指令 raco test . 執行測試。
 
+@subsection{Executable}
+
+如果要開發 executable，在 main.rkt(生成的專案裡會有) 裡的 module+ main 裡面寫的程式就是 executable 會執行的東西，另外引用這個 collection 並不會執行到這些程式。可以用指令 @code{racket -l <collection-name>} 來執行 collection。
+
+@subsection{清理}
+
 如果未來刪除這個 collection 目錄，也要記得刪除 raco 中的紀錄：
 
 @codeblock|{
@@ -84,10 +90,6 @@ raco pkg remove <collection-name>
 }|
 
 不然就會造成 raco 在其他專案使用時一直找不到該 collection 而沒辦法正常運作。
-
-@subsection{Executable}
-
-如果要開發 executable，在 main.rkt(生成的專案裡會有) 裡的 module+ main 裡面寫的程式就是 executable 會執行的東西，另外引用這個 collection 並不會執行到這些程式。可以用指令 @code{racket -l <collection-name>} 來執行 collection。
 
 @section{#lang}
 
