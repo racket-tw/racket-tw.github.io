@@ -3,7 +3,6 @@
           scribble/example)
 
 @title{Module}
-@author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
 
 @section{檔案}
 
@@ -108,7 +107,3 @@ raco pkg remove <collection-name>
 }|
 
 如果有 html.rkt 這個 module，s-exp "html.rkt" 就是 (module <file-name> "html.rkt") 而已。
-
-@section{總結}
-
-希望這段教學可以讓讀者看懂怎麼用 module 了，如果覺得有哪些資訊也應該放進這篇裡面可以寄信(◊author-mail)告訴我，如果有想了解的內容但還沒有相關教學可以 @link["https://github.com/racket-tw/racket-tw.github.io/issues/new" "開新issue"]。

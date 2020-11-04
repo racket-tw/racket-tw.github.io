@@ -2,7 +2,6 @@
 @(require (for-label racket))
 
 @title{Quick Start}
-@author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
 
 racket 有一個奇特的怪僻，就是每個檔案都必須標明自己的
 
@@ -122,7 +121,3 @@ racket 有數種控制流 form：
 }|
 
 雖然在這個案例裡面內建 return 的語言更方便，但 @elem{continuation} 提供了更多功能，不過這邊就不深入介紹，之後再另開文章寫這個 XD。
-
-@section{總結}
-
-希望這段超短教學可以讓讀者看懂一些 racket 的程式了，如果覺得有哪些資訊也應該放進這篇裡面可以寄信告訴我，如果有想了解的內容但還沒有相關教學可以 @(link "https://github.com/racket-tw/racket-tw.github.io/issues/new" "開新 issue")。
