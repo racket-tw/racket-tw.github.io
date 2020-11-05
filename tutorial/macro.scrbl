@@ -97,3 +97,5 @@
 ]
 
 那 @code{x}、@code{y} 就會綁定到 @code{p} 變成 @code{'(x y)}，接著底下 macro body 的部分又會把 @code{p ...} 展開。
+
+TODO: 問題(reject invalid macro)
