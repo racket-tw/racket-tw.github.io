@@ -9,11 +9,11 @@
 @include-section{quick-start.scrbl}
 @include-section{module.scrbl}
 @include-section{typed-racket.scrbl}
+@include-section{macro.scrbl}
 
 @section{TODO}
 
 @itemlist[
-  @item{預定：macro}
   @item{預定：collection}
   @item{預定：continuation}
   ]
