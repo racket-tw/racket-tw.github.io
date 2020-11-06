@@ -98,4 +98,27 @@
 
 那 @code{x}、@code{y} 就會綁定到 @code{p} 變成 @code{'(x y)}，接著底下 macro body 的部分又會把 @code{p ...} 展開。
 
-TODO: 問題(reject invalid macro)
+然而現在的做法還有一些問題，我們可以寫：
+
+@racketblock[
+(my-define 1 1)
+(swap 'a 'b)
+]
+
+而這些程式是荒謬的，雖然這兩個例子裡面轉換後的 form 剛好能抓到問題，然而這一來未必會成立，二來錯誤訊息跟我們定義的 form 毫無關聯非常難讀。使用 @code{syntax-case} 可以解決這個問題：
+
+@racketblock[
+(define-syntax my-define
+  (λ (stx)
+    (syntax-case stx ()
+      [(my-define x e)
+       (unless (identifier? #'x)
+         (error 'my-define "~a should be an identifier" #'x))
+       #'(define x e)]
+      [(my-define (x p ...) e)
+       (unless (identifier? #'x)
+         (error 'my-define "~a should be an identifier" #'x))
+       #'(define (x p ...) e)])))
+]
+
+@code{syntax-case} 在這裡必須被包在 @code{λ} 底下，好接收 @code{stx} 參數。並且這裏需要用 @code{syntax} 明確地把回傳值包裝起來，這樣我們才能區分檢查的程式跟組合出來的結果。
