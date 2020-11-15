@@ -16,6 +16,7 @@ racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響�
 @section{Blog}
 
 @itemlist[
+  @item{@link["/post/2020-11-15-raco-run.html" "2020/11/15 raco-run"]}
   @item{@link["/post/2020-10-22-pattern-matching-value.html" "2020/10/22 Pattern matching value"]}
   @item{@link["/post/2020-10-15-semilit.html" "2020/10/15 semilit"]}
   @item{@link["/post/2020-10-07-from-template.html" "2020/10/07 from-template"]}
