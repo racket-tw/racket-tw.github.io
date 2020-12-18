@@ -16,6 +16,7 @@ racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響�
 @section{Blog}
 
 @itemlist[
+  @item{@link["/post/2020-12-18-simple-type-check-with-nanopass.html" "2020/12/18 用 nanopass 做簡單的類型檢查"]}
   @item{@link["/post/2020-11-20-riposte.html" "2020/11/20 Riposte"]}
   @item{@link["/post/2020-11-15-raco-run.html" "2020/11/15 raco-run"]}
   @item{@link["/post/2020-10-22-pattern-matching-value.html" "2020/10/22 Pattern matching value"]}
