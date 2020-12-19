@@ -187,4 +187,4 @@ nanopass 除了是一種思想，也是一套框架(由 Andy Keep 實作與維�
 (lookup 'result)
 ]
 
-結果應該會是 @code{'number}。歡迎提出問題或是改進建議，我們有 @link["discord.gg/xpwzAcx" "Discord channel"]，這篇的程式也可以在 @link["https://github.com/racket-tw/simple-typer" "這個專案"]裡面找到喔！到這裡我相信讀者也已經對 nanopass 為我們省下了什麼有所感受，且可以用來編寫更多有趣的程式 XD，下次再見。
+結果應該會是 @code{'number}。歡迎提出問題或是改進建議，我們有 @link["https://discord.gg/xpwzAcx" "Discord channel"]，這篇的程式也可以在@link["https://github.com/racket-tw/simple-typer" "這個專案"]裡面找到喔！到這裡我相信讀者也已經對 nanopass 為我們省下了什麼有所感受，且可以用來編寫更多有趣的程式 XD，下次再見。
