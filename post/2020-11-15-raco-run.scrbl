@@ -2,7 +2,7 @@
 @(require (for-label racket))
 
 @title{raco-run}
-@author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
+@author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
 
 raco-run 是一個 raco 指令介面擴展，可以直接通過 raco 執行相應模組內的程式
 

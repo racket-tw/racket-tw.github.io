@@ -4,7 +4,7 @@
                      nanopass/base))
 
 @title{用 nanopass 做簡單的類型檢查}
-@author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
+@author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
 
 nanopass 是一種編譯器實作的思想，旨在每個 pass 都只做簡單的最佳化，與傳統個位數個 pass 就做完全部事情相比。這種作法雖然需要遍歷程式更多次，總體而言卻比傳統的做法更有效率，並且遠比傳統做法更容易維護。這次則是以簡單運用 nanopass 作為起頭，以後應該還會繼續擴展這個系列下去 XD。
 

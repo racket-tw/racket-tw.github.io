@@ -2,7 +2,7 @@
 @(require (for-label racket))
 
 @title{Riposte}
-@author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
+@author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
 
 Riposte 可以像 postman 一樣幫助我們建立可以反覆測試的 HTTP Request，但寫出來的腳本可以提交進 repository 的同時又不需要依賴 postman 這樣的操作介面。可以通過下面的指令安裝：
 

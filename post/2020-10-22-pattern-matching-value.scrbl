@@ -2,7 +2,7 @@
 @(require (for-label racket))
 
 @title{Pattern matching value}
-@author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
+@author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
 
 pattern matching 是 Lisp/ML 家族很常見也很好用的功能，但因為語法衝突，我們總是只能選擇以變數名稱做綁定或是取值比對兩種行為。舉例來說：
 
