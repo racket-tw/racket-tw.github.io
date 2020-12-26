@@ -23,6 +23,7 @@ racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響�
 @section{Blog}
 
 @itemlist[
+  @item{@hyperlink["./post/2020-12-26-frontend-to-nanopass.scrbl" "2020/12/26 從 frontend(compiler) 到 nanopass"]}
   @item{@hyperlink["./post/2020-12-18-simple-type-check-with-nanopass.html" "2020/12/18 用 nanopass 做簡單的類型檢查"]}
   @item{@hyperlink["./post/2020-11-20-riposte.html" "2020/11/20 Riposte"]}
   @item{@hyperlink["./post/2020-11-15-raco-run.html" "2020/11/15 raco-run"]}
