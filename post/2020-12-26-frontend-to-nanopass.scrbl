@@ -11,11 +11,14 @@
 @codeblock|{
 (require nanopass/base)
 
+(define (unparse-id x)
+  (syntax->datum x))
+
 (define-language L0
   (terminals
    (syntax (stx))
-   (identifier (name param))
-   (stx-number (num)))
+   ((identifier (name param)) . => . unparse-id)
+   ((stx-number (num)) . => . syntax-e))
   (Expr (expr)
         num
         name
@@ -36,7 +39,7 @@
       #f))
 }|
 
-因為我們需要儲存任意表達式的位置，最簡單的方式就是儲存原始的 @code{syntax} 物件，我們在每一層物件裡面都確保了它儲存了最上層的原始物件。@code{stx-number?} 跟 @code{identifier?} 都首先是一個 @code{syntax?}，然後才檢查其內容，因此一定有做到儲存原始最上層物件的結果。至於 @bold{let}、@bold{abstraction}、@bold{application} 都自行持有 @code{stx} 欄位來達成這點。然而如果每次我們都列印原始的物件，這一定很煩人，所以用 @code{=>} 簡化輸出結果。
+因為我們需要儲存任意表達式的位置，最簡單的方式就是儲存原始的 @code{syntax} 物件，我們在每一層物件裡面都確保了它儲存了最上層的原始物件。@code{stx-number?} 跟 @code{identifier?} 都首先是一個 @code{syntax?}，然後才檢查其內容，因此一定有做到儲存原始最上層物件的結果。至於 @bold{let}、@bold{abstraction}、@bold{application} 都自行持有 @code{stx} 欄位來達成這點。然而如果每次我們都列印原始的物件，這一定很煩人，所以用 @code{=>} 簡化輸出結果(可以看到這對 @code{terminals} 一樣適用)。
 
 現在我們可以專注在最後的核心：@code{parse}，這個 pass 把原始 @code{syntax} 物件轉換成 nanopass 的結構以利於後續採用 nanopass 的方式開發。
 
