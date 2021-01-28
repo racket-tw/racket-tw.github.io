@@ -4,7 +4,7 @@
 @title{程式入門教學}
 @author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
 
-以下教學假設您已經成功安裝 Racket，並理解簡單的數學，擁有相當生活常識（像是知道買東西要付錢）。
+以下教學假設您已經成功安裝 Racket，並理解簡單的數學，擁有相當的生活常識（像是知道買東西要付錢）。
 
 @section{何謂程式（program）？}
 
