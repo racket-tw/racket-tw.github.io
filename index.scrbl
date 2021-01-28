@@ -47,7 +47,13 @@ racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響�
   @item{@hyperlink["https://mitpress.mit.edu/books/little-schemer-fourth-edition" "The Little Schemer"]}
   @item{@hyperlink["https://nostarch.com/realmofracket.htm" "Realm of Racket"]}
   @item{@hyperlink["https://nostarch.com/racket-programming-fun-way" "Racket Programming the Fun Way"]}
-]
+  ]
+
+@subsubsection{線上練習環境}
+
+@itemlist[
+  @item{@hyperlink["https://exercism.io/tracks/racket" "exercism: Racket"]}
+  ]
 
 @section{專案}
 
