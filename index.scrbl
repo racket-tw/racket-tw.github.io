@@ -20,6 +20,23 @@ racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響�
         已經會寫其他程式語言可以從這裡開始}
   ]
 
+@subsection{其他學習資訊}
+
+@subsubsection{書籍}
+
+@itemlist[
+  @item{@hyperlink["https://mitpress.mit.edu/sites/default/files/sicp/index.html" "Structure and Interpretation of Computer Programs(SICP)"]}
+  @item{@hyperlink["https://mitpress.mit.edu/books/little-schemer-fourth-edition" "The Little Schemer"]}
+  @item{@hyperlink["https://nostarch.com/realmofracket.htm" "Realm of Racket"]}
+  @item{@hyperlink["https://nostarch.com/racket-programming-fun-way" "Racket Programming the Fun Way"]}
+  ]
+
+@subsubsection{線上練習環境}
+
+@itemlist[
+  @item{@hyperlink["https://exercism.io/tracks/racket" "exercism: Racket"]}
+  ]
+
 @section{Blog}
 
 @itemlist[
@@ -49,23 +66,6 @@ racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響�
   ]
 
 但我認為整體來看還是 DrRacket 最為完整，也可以試試看 racket.tw 開發的 @hyperlink["https://github.com/racket-tw/sauron" "Sauron"]。
-
-@subsection{其他學習資訊}
-
-@subsubsection{書籍}
-
-@itemlist[
-  @item{@hyperlink["https://mitpress.mit.edu/sites/default/files/sicp/index.html" "Structure and Interpretation of Computer Programs(SICP)"]}
-  @item{@hyperlink["https://mitpress.mit.edu/books/little-schemer-fourth-edition" "The Little Schemer"]}
-  @item{@hyperlink["https://nostarch.com/realmofracket.htm" "Realm of Racket"]}
-  @item{@hyperlink["https://nostarch.com/racket-programming-fun-way" "Racket Programming the Fun Way"]}
-  ]
-
-@subsubsection{線上練習環境}
-
-@itemlist[
-  @item{@hyperlink["https://exercism.io/tracks/racket" "exercism: Racket"]}
-  ]
 
 @section{專案}
 
