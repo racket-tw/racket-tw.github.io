@@ -177,7 +177,7 @@ Racket 亦支援有理數如
 等，也有支援常用的特殊值的近似，如
 
 @examples[
-(eval:no-prompt (require racket/math))
+(require racket/math)
 pi
 ]
 
