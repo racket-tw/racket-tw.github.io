@@ -1,10 +1,11 @@
 #lang scribble/manual
-@(require (for-label racket))
+@(require (for-label racket)
+          scribble/eval)
 
 @title{程式入門教學}
 @author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
 
-以下教學假設您已經成功安裝 Racket，並理解簡單的數學，擁有相當的生活常識（像是知道買東西要付錢）。
+以下教學假設您已經成功安裝 Racket，並理解簡單的數學，擁有相當的生活常識。教學在第一次提到名詞時會中英並陳，之後則根據需要使用中或英，在翻譯會造成理解上的困擾時不翻。
 
 @section{何謂程式（program）？}
 
@@ -16,7 +17,7 @@
 
 根據我們選定的抽象層面，我們也有可能可以關注到本來無法觀察的運算過程。舉個例子，方才我們描述的東西叫做自然數加法，皮亞諾公理（Peano axioms）可以幫助我們觀察某方面的真實。
 
-皮亞諾公理規定自然數可以由兩個方式得到
+皮亞諾公理規定了自然數可以由兩個方式得到
 
 @itemlist[
     @item{0 是自然數}
@@ -117,20 +118,21 @@
 
 現在你應該已經對程式能夠與不能夠完成的事情有了一點概念，也了解到運算跟抽象定義的威力，然而我們終究還是要學習一門實際的語言來進行寫程式這個行為，因此接下來轉入介紹 @bold{Racket} 這個程式語言。
 
-@section{資料}
+@section{資料（Data）}
 
-不管是哪一種程式都會進行計算，而計算就會得到結果，結果需要以人類可以理解的方式呈現。為此大多數語言都設立了一些常用的資料表達方式，@bold{Racket} 也不例外的支援了
+不管是哪一種程式都會進行計算，而計算就會得到結果，結果以人類可以理解的方式呈現。為此大多數語言都設立了一些常用的資料表達方式，@bold{Racket} 也不例外的支援了
 
 @itemlist[
     @item{整數}
     @item{有理數}
     @item{浮點數（沒有實數，因為不可數集合沒辦法建構出來。同理所以接下來的複數也是有限制的複數）}
     @item{複數}
+    @item{布林值（Boolean）}
     @item{字元}
     @item{字串（用來表達文字，但因為程式本身也是文字嘛，所以用 @bold{quote} 包起來避免混淆）}
     ]
 
-下面我們分數字跟文字來討論。在 terminal 裡面直接輸入 @code{racket} 會出現一個可以輸入運算式（expression）的文字交互環境，我們一般叫它 REPL，下面的程式是以一行一個運算式的方式排列的。大概會長得像下面那樣（我從印出來的文字裡面拿掉版本資訊，不過執行之後應該就看得出自己有沒有弄對了）。
+下面我們分數字、布林值跟文字來討論。在 terminal 裡面直接輸入 @code{racket} 會出現一個可以輸入運算式（expression）的文字交互環境，我們一般叫它 REPL，下面的程式是以含輸入提示符號（@litchar{>}）排列的。啟動 REPL 的畫面大概會長得像下面那樣（我從印出來的文字裡面拿掉版本資訊，不過執行之後應該就看得出自己有沒有弄對了）。
 
 @codeblock|{
 $ racket
@@ -144,7 +146,7 @@ Welcome to Racket
 
 整數一如常見的理解，
 
-@racketblock[
+@examples[
 1
 1232131245
 -99230193
@@ -156,44 +158,61 @@ Welcome to Racket
 
 Racket 亦支援有理數如
 
-@racketblock[
+@examples[
 3/4
-2621/1066097
+32132/414551266
 ]
 
-，而且你會發現它甚至會自動約分（笑）
+，而且它甚至會自動約分（笑）
 
 @subsubsection{浮點數}
 
 就像前面提過的，不可數集合沒辦法建構出來，所以用浮點數這種對於實數的近似值數值表現法來處理，寫成
 
-@racketblock[
+@examples[
 2.4214
 8.34155152
 ]
 
 等，也有支援常用的特殊值的近似，如
 
-@racketblock[
+@examples[
+(require racket/math)
 pi
 ]
 
 @subsubsection{複數}
 
-除開實數是採用近似，複數跟學習到的基本上類似
+除開實數是採用浮點數近似，複數跟在高中學習到的東西基本上是一樣的
 
-@racketblock[
+@examples[
 5+2i
 10+3.412i
 ]
+
+@subsection{布林值（Boolean）}
+
+布林值也是現代人熟知的資料之一了，用於真假運算上，在 Racket 中寫法比較獨特
+
+@examples{
+#t
+#f
+}
+
+大寫不改變其意
+
+@examples{
+#T
+#F
+}
 
 @subsection{文字}
 
 @subsubsection{字元}
 
-字元用 #\ 作為前綴，在後面接上想要的字元就是該字元
+字元用 @litchar{#\} 作為前綴，在後面接上想要的字元就是該字元
 
-@racketblock[
+@examples[
 #\c
 #\a
 #\0
@@ -202,7 +221,7 @@ pi
 
 ，而 @bold{Racket} 也支援一些控制字元（鍵盤上的特殊功能鍵）如
 
-@racketblock[
+@examples[
 #\return
 #\tab
 ]
@@ -233,13 +252,13 @@ hello
 (display hello)
 }
 
-的 @code{hello} 到底是什麼？乃至 @code{(display hello)} 到底是變數還是字串？所以實際上我們用 " 把字串包起來，寫成
+的 @code{hello} 到底是什麼？乃至 @code{(display hello)} 到底是變數還是字串？所以實際上我們用 @litchar{"} 把字串包起來，寫成
 
 @codeblock{
 (display "hello")
 }
 
-但我們用了 " 之後，要怎麼在字串裡面表示 "？所以有所謂的轉義字符（escape character），例如 "hello" 就可以寫成
+但我們用了 @litchar{"} 之後，要怎麼在字串裡面表示 @litchar{"}？所以有所謂的轉義字符（escape character），例如 @code{"hello"} 就可以寫成
 
 @codeblock{
 "\"hello\""
@@ -247,4 +266,37 @@ hello
 
 @section{Racket 特有的資料}
 
-雖說是特有概念但很多也是繼承自 Lisp/Scheme 的東西。TODO
+雖說是特有概念但其實很多概念是繼承自 Lisp/Scheme 的，包含
+
+@itemlist[
+    @item{Symbol}
+    @item{Keyword}
+    @item{Pairs and Lists}
+    ]
+
+@subsection{Symbol}
+
+Symbol 是看起來就像是前面加了 @litchar{'} 的 identifier
+
+TODO
+
+@subsection{Keyword}
+
+TODO
+
+@subsection{Pairs and Lists}
+
+TODO
+
+@section{更複雜的資料}
+
+TODO
+
+@itemlist[
+    @item{Vectors}
+    @item{Hash Tables}
+    @item{Boxes}
+    @item{Void and Undefined}
+    ]
+
+TODO
