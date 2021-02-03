@@ -2,7 +2,7 @@
 @(require (for-label racket)
           scribble/example)
 
-@title{Module}
+@title{模組（Module）}
 
 @section{檔案}
 

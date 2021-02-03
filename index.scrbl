@@ -16,8 +16,10 @@ racket 源於 PLT Scheme 這個專案，至今也仍然與 scheme 互相影響�
 @itemlist[
   @item{@hyperlink["./tutorial/entry/index.html"]{程式入門者}
         以還不會寫程式的讀者為目標}
-  @item{@hyperlink["./tutorial/advanced/index.html"]{進階學習者}
+  @item{@hyperlink["./tutorial/quick/index.html"]{快速導覽}
         已經會寫其他程式語言可以從這裡開始}
+  @item{@hyperlink["./tutorial/advanced/index.html"]{進階學習者}
+        想要進一步了解 racket 無所謂的細節的人可以看這裡 :p}
   ]
 
 @subsection{其他學習資訊}

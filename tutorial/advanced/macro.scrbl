@@ -5,7 +5,7 @@
 
 @title{Macro}
 
-終於來到 macro，racket 的 macro 是給了一個編譯時期運行 racket 的環境，又因為 racket 是 s expression，所以可以直接操作 racket ast(@code{car}、@code{cdr} 等)，因此也稱 @italic{syntax transformers}。那麼趕緊來看怎麼使用吧！
+racket 的 macro 是給了一個編譯時期運行 racket 的環境，又因為 racket 是 s expression，所以可以直接操作 racket ast(@code{car}、@code{cdr} 等)，因此也稱 @italic{syntax transformers}。那麼趕緊來看怎麼使用吧！
 
 @section{Pattern-Based Macros}
 
