@@ -1,6 +1,6 @@
 #lang scribble/manual
 @(require (for-label racket)
-          scribble/eval)
+          scribble/example)
 
 @title{程式入門教學}
 @author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
@@ -177,7 +177,7 @@ Racket 亦支援有理數如
 等，也有支援常用的特殊值的近似，如
 
 @examples[
-(require racket/math)
+(eval:no-prompt (require racket/math))
 pi
 ]
 
