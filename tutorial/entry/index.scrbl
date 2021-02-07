@@ -1,6 +1,6 @@
 #lang scribble/manual
 @(require (for-label racket)
-          scribble/example)
+          scribble/eval)
 
 @title{程式入門教學}
 @author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
@@ -146,7 +146,7 @@ Welcome to Racket
 
 整數一如常見的理解，
 
-@examples[
+@interaction[
 1
 1232131245
 -99230193
@@ -158,7 +158,7 @@ Welcome to Racket
 
 Racket 亦支援有理數如
 
-@examples[
+@interaction[
 3/4
 32132/414551266
 ]
@@ -169,14 +169,14 @@ Racket 亦支援有理數如
 
 就像前面提過的，不可數集合沒辦法建構出來，所以用浮點數這種對於實數的近似值數值表現法來處理，寫成
 
-@examples[
+@interaction[
 2.4214
 8.34155152
 ]
 
 等，也有支援常用的特殊值的近似，如
 
-@examples[
+@interaction[
 (require racket/math)
 pi
 ]
@@ -185,7 +185,7 @@ pi
 
 除開實數是採用浮點數近似，複數跟在高中學習到的東西基本上是一樣的
 
-@examples[
+@interaction[
 5+2i
 10+3.412i
 ]
@@ -194,14 +194,14 @@ pi
 
 布林值也是現代人熟知的資料之一了，用於真假運算上，在 Racket 中寫法比較獨特
 
-@examples{
+@interaction{
 #t
 #f
 }
 
 大寫不改變其意
 
-@examples{
+@interaction{
 #T
 #F
 }
@@ -212,7 +212,7 @@ pi
 
 字元用 @litchar{#\} 作為前綴，在後面接上想要的字元就是該字元
 
-@examples[
+@interaction[
 #\c
 #\a
 #\0
@@ -221,7 +221,7 @@ pi
 
 ，而 @bold{Racket} 也支援一些控制字元（鍵盤上的特殊功能鍵）如
 
-@examples[
+@interaction[
 #\return
 #\tab
 ]
@@ -276,13 +276,41 @@ hello
 
 @subsection{Symbol}
 
-Symbol 是看起來就像是前面加了 @litchar{'} 的 identifier
+前面加了 @litchar{'} 的 identifier 就會生成 Symbol 的值，例如：
 
-TODO
+@interaction[
+'a
+(symbol? 'a)
+]
+
+第二句 @code{(symbol? 'a)} 可以讀作：@code{'a} 是 symbol 嗎？
+
+我們還可以詢問兩個 symbol 是否相等：
+
+@interaction[
+(eq? 'a 'a)
+(eq? 'a 'abc)
+(eq? 'a 'ABC)
+]
+
+還可以把字串轉換成 symbol：
+
+@interaction[
+(string->symbol "a")
+]
+
+除了以下字元跟空白符號之外的字元都是合法的 identifier 字元（合法在這裡指可以出現在 identifier 內）：
 
 @subsection{Keyword}
 
-TODO
+Keyword 跟 Symbol 很像，只是前綴是 @litchar{#:}，例如：
+
+@interaction[
+'#:apple
+(eq? '#:apple (string->keyword "apple"))
+]
+
+keyword 主要是用在命名參數（或是帶名參數）上，讀者暫時可以先不用管這是什麼意思，講到函數（function）時會更深入一點介紹命名參數是什麼。
 
 @subsection{Pairs and Lists}
 
