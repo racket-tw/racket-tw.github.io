@@ -276,7 +276,7 @@ hello
 
 @subsection{Symbol}
 
-前面加了 @litchar{'} 的 identifier 就會生成 Symbol 的值，例如：
+前面加了 @litchar{'} 的 identifier 就會生成 Symbol 的值（所以也可以說 symbol 就是 quoted identifier），例如：
 
 @interaction[
 'a
@@ -300,6 +300,24 @@ hello
 ]
 
 除了以下字元跟空白符號之外的字元都是合法的 identifier 字元（合法在這裡指可以出現在 identifier 內）：
+
+@litchar{(} @litchar{)} @litchar{[} @litchar{]} @litchar["{"] @litchar["}"] @litchar{"} @litchar{,} @litchar{'} @litchar{`} @litchar{;} @litchar{#} @litchar{|} @litchar{\}
+
+除此之外
+
+@itemlist[
+    @item{@litchar{#} 只有在開頭不被允許，但 @litchar{#%} 則允許，所以 @litchar{#a} 不是 identifier 但 @litchar{#%a} 和 @litchar{a#} 是 identifier。}
+    @item{@litchar{.} 本身不是 identifier}
+    ]
+
+而如果真的想要包含非法字元，可以用 @litchar{|} 包起來或是用 @litchar{\} 前綴逃脫，所以以下都是合法的 symbol
+
+@interaction[
+'\#a
+'|#a|
+'\.
+'|{|
+]
 
 @subsection{Keyword}
 
