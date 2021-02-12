@@ -312,12 +312,12 @@ hello
 
 而如果真的想要包含非法字元，可以用 @litchar{|} 包起來或是用 @litchar{\} 前綴逃脫，所以以下都是合法的 symbol
 
-@interaction[
-'\#a
-'|#a|
-'\.
-'|{|
-]
+@itemlist[
+    @item{@litchar{'\#a}}
+    @item{@litchar{'|#a|}}
+    @item{@litchar{'\.}}
+    @item{@litchar["'|{|"]}
+    ]
 
 @subsection{Keyword}
 
@@ -328,11 +328,25 @@ Keyword 跟 Symbol 很像，只是前綴是 @litchar{#:}，例如：
 (eq? '#:apple (string->keyword "apple"))
 ]
 
-keyword 主要是用在命名參數（或是帶名參數）上，讀者暫時可以先不用管這是什麼意思，講到函數（function）時會更深入一點介紹命名參數是什麼。
+keyword 主要是用在命名參數（或是帶名參數）上，讀者暫時可以先不用管這是什麼意思，講到函數（function）時會更深入一點介紹命名參數是什麼。這裏先讓讀者看 @code{with-output-to-file} 怎麼用到 keyword 的：
 
-@subsection{Pairs and Lists}
+@codeblock{
+(with-output-to-file
+  (build-path (current-directory) "stuff.txt")
+  (lambda () (printf "example\n"))
+  #:mode 'text
+  #:exists 'replace)
+}
 
-TODO
+@subsection{Pair 與 List}
+
+Pair 與 List 是 Racket 中的程式、也是資料，這種對應使得我們有能力操作製作程式的程式，但現在我們不需要關心這個進階功能。首先我們看一些 Pair 的實例：
+
+@interaction[
+'(1 . 2)
+'(a . b)
+'(a a . b)
+]
 
 @section{更複雜的資料}
 
