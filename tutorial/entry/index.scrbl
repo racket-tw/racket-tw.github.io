@@ -345,8 +345,34 @@ Pair 與 List 是 Racket 中的程式、也是資料，這種對應使得我們�
 @interaction[
 '(1 . 2)
 '(a . b)
-'(a a . b)
+'(a b . c)
 ]
+
+事實上 @code{'(a b . c)} 是 @code{'(a . (b . c))} 的簡寫。因此我們可以說 Pair 就是擁有兩個「內容」的結構，內容可以是任何資料。我們可以用 @code{car}（取得左邊）和 @code{cdr}（取得右邊）存取 Pair 的內容，因此：
+
+@interaction[
+(car '(a . b))
+(cdr '(a . b))
+(cdr '(a b . c))
+]
+
+List 是特殊的 Pair，當一個 Pair 的右側是空的 Pair @code{()} 時，該 Pair 就是一個 List，並且空 Pair 本身也是 List：
+
+@interaction[
+(list? '())
+(cdr '(a))
+(cddr '(a b))
+]
+
+有解構的方式，Pair 也有建構的方式，字面值語法 @code{(1 . 2)} 無法和函數呼叫（之後才會提到）語法區隔，因此我們得寫成 @code{'(1 . 2)}，但我們也可以改用其建構函數 @code{cons}：
+
+@interaction[
+(cons 1 2)
+(cons 'a 'b)
+(cons 'a (cons 'b 'c))
+]
+
+到此我們已經對 Pair 和 List 有足夠的了解，接下來是一些相對複雜的資料，只是留作參考，對學習的影響不大，讀者可以跳到計算規則的部分。
 
 @section{更複雜的資料}
 
@@ -360,3 +386,5 @@ TODO
     ]
 
 TODO
+
+@section{語法與計算規則}
