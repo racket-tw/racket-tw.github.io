@@ -1,4 +1,4 @@
-SCRBL := raco scribble ++main-xref-in --redirect-main http://docs.racket-lang.org/
+SCRBL := raco scribble +m --redirect-main http://docs.racket-lang.org/
 
 dist:
 	@git clone git@github.com:racket-tw/racket-tw.github.io.git dist -b master

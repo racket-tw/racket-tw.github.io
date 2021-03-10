@@ -9,5 +9,4 @@
 
 @include-section{introduction.scrbl}
 @include-section{basic-data.scrbl}
-
-@section{語法與計算規則}
+@include-section{syntax-and-computation.scrbl}
