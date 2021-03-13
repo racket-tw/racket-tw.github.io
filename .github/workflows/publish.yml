@@ -27,6 +27,6 @@ jobs:
           publish_branch: master
       - name: Publish
         run: |
-          raco pkg install --auto semilit nanopass
+          raco pkg install --auto semilit nanopass riposte
           make publish
           echo published
