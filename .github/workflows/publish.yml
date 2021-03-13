@@ -25,6 +25,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: master
+          user_name: 'dannypsnl'
+          user_email: 'dannypsnl@gmail.com'
       - name: Publish
         run: |
           raco pkg install --auto semilit nanopass riposte
