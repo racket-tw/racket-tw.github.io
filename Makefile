@@ -1,7 +1,7 @@
 SCRBL := raco scribble +m --redirect-main http://docs.racket-lang.org/
 
 dist:
-	@git clone git@github.com:racket-tw/racket-tw.github.io.git dist -b master
+	@git clone https://github.com/racket-tw/racket-tw.github.io.git dist -b master
 OBJS = $(patsubst %.scrbl, %.html, $(shell ls *.scrbl **/*.scrbl tutorial/**/*.scrbl))
 OUT_DIR = dist
 OUT_OBJS = $(addprefix $(OUT_DIR)/, $(OBJS))
