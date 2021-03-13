@@ -9,9 +9,5 @@ $(OUT_DIR)/%.html: %.scrbl
 	@mkdir -p $(dir $@)
 	@$(SCRBL) --dest $(dir $@) $<
 
-.PHONY: build publish
+.PHONY: build
 build: $(OUT_DIR) $(OUT_OBJS)
-publish: build
-	@cd dist; git add -A
-	@cd dist; git commit -m "update $$(date +%Y/%m/%d-%H:%M:%S)"
-	@cd dist; git push origin master
