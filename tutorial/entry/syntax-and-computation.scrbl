@@ -53,6 +53,32 @@ Racket 寫成
 接下來，我們來了解一些常見的 form
 
 @section{conditional: if/cond/case/match}
-TODO
+
+@subsection{if}
+
+@code{if} form 是各語言常見的語法，以下是一個 racket 案例
+
+@codeblock{
+(if (= x 1)
+  'x-is-one
+  'x-is-not-one)
+}
+
+我們可以看到 @code{if} 有三大元素：
+
+@itemlist[
+    @item{條件式（test-expr）}
+    @item{條件式為非假 @code{(not #f)} 的結果（then-expr）}
+    @item{條件式為假 @code{#f} 的結果（else-expr）}
+]
+
+也就是
+
+@defform[(if test-expr then-expr else-expr)]
+
+@subsection{cond}
+@subsection{case}
+@subsection{match}
+
 @section{let/let*/letrec}
 TODO
