@@ -68,8 +68,8 @@ Racket 寫成
 
 @itemlist[
     @item{條件式（test-expr）}
-    @item{條件式為非假 @code{(not #f)} 的結果（then-expr）}
-    @item{條件式為假 @code{#f} 的結果（else-expr）}
+    @item{條件式為非假 @code{(not #f)} 的結果式（then-expr）}
+    @item{條件式為假 @code{#f} 的結果式（else-expr）}
 ]
 
 也就是
