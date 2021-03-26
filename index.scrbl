@@ -27,6 +27,7 @@ racket 源於 PLT Scheme 這個專案，至今也仍與 scheme 互相影響，�
 @subsubsection{書籍}
 
 @itemlist[
+  @item{@hyperlink["https://mitpress.mit.edu/books/software-design-flexibility"]{Software Design for Flexibility: How to Avoid Programming Yourself into a Corner}}
   @item{@hyperlink["https://mitpress.mit.edu/sites/default/files/sicp/index.html"]{Structure and Interpretation of Computer Programs(SICP)}}
   @item{@hyperlink["https://mitpress.mit.edu/books/little-schemer-fourth-edition"]{The Little Schemer}}
   @item{@hyperlink["https://nostarch.com/realmofracket.htm"]{Realm of Racket}}
