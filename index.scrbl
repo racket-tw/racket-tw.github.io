@@ -74,15 +74,6 @@ racket 源於 PLT Scheme 這個專案，至今也仍與 scheme 互相影響，�
   @item{@hyperlink["https://github.com/racket-tw/cc"]{cc}：用 racket 寫的 c to x86/64 compiler}
   ]
 
-@section{近期活動}
-
-@itemlist[
-  @item{@hyperlink["https://racketfest.com/"]{Racket Fest 2021}
-        @itemlist[
-          @item{2021/03/26 CET 8:00 pm to 11:59 pm}
-          @item{2021/03/27 CET 8:00 pm to 11:59 pm}]}
-  ]
-
 @section{其他資源}
 
 @itemlist[
