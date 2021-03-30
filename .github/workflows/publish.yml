@@ -20,10 +20,11 @@ jobs:
         with:
           architecture: 'x64'
           variant: 'CS'
-          version: 'current'
+          version: '8.0'
+          # NOTE: try to cache /usr/share/racket-8.0.0.12/
+          packages: 'semilit', 'nanopass', 'riposte'
       - name: Build
         run: |
-          raco pkg install --auto semilit nanopass riposte
           make build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
