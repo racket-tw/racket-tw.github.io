@@ -27,9 +27,9 @@ jobs:
           architecture: 'x64'
           variant: 'CS'
           version: '8.0'
-          packages: '--skip-installed semilit, nanopass, riposte'
       - name: Build
         run: |
+          raco pkg install --auto --skip-installed semilit nanopass riposte
           make build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
