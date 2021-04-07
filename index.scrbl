@@ -66,6 +66,10 @@ racket 源於 PLT Scheme 這個專案，至今也仍與 scheme 互相影響，�
 
 但我認為整體來看還是 DrRacket 最為完整，也可以試試看 racket.tw 開發的 @hyperlink["https://github.com/racket-tw/sauron"]{sauron}。
 
+@section{近期活動}
+
+4/30 台灣時間 19:30 Clojure Taiwan 於天瓏書局二樓舉辦分享會
+
 @section{專案}
 
 @itemlist[
