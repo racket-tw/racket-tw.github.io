@@ -6,9 +6,9 @@
 
 @itemlist[
     @item{Clone @hyperlink["https://github.com/bubba/racket-llvm"]{git repo}：
-        @codeblock{
+        @racketblock[
         git clone git@github.com:bubba/racket-llvm.git
-        }}
+        ]}
     @item{包做 .zip：
         @codeblock{
         raco pkg create --binary racket-llvm
