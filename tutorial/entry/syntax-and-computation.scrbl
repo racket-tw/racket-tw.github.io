@@ -76,6 +76,8 @@ Racket 寫成
 
 @defform[(if test-expr then-expr else-expr)]
 
+唯一需要特別注意的是 racket 的 @code{if} 不能省略 else-expr。不過如果有這種需要，可以改用 @code{when} 或是 @code{unless} form。
+
 @subsection{cond}
 @subsection{case}
 @subsection{match}
