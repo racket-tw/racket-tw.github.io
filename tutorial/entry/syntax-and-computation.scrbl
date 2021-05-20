@@ -95,7 +95,23 @@ Racket 寫成
 }
 
 @subsection{case}
+
+@defform/subs[(case val-expr case-clause ...)
+  ([case-clause [(datum ...) then-body ...+]
+               	[else then-body ...+]])
+  ]{
+
+}
+
 @subsection{match}
+
+@defform/subs[(match val-expr clause ...)
+  ([clause	[pat body ...+]
+                [pat (=> id) body ...+]
+                [pat #:when cond-expr body ...+]])
+  ]{
+
+}
 
 @section{let/let*/letrec}
 TODO
