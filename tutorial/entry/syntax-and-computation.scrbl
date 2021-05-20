@@ -80,7 +80,18 @@ Racket 寫成
 
 @subsection{cond}
 
-@defform[(cond cond-clause ...)]{
+@defform/subs[(cond cond-clause ...)
+  ([cond-clause	[test-expr then-body ...+]
+                [else then-body ...+]
+                [test-expr => proc-expr]
+                [test-expr]])
+  ]{
+
+  @specform[[test-expr then-body ...+]]{}
+  @specform[[else then-body ...+]]{}
+  @specform[[test-expr => proc-expr]]{}
+  @specform[[test-expr]]{}
+
 }
 
 @subsection{case}
