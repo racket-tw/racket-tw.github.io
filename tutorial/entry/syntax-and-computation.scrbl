@@ -22,7 +22,7 @@ Racket 寫成
 
 函數呼叫（function call）大概是最普遍的計算規則，在各種語言裡面都可以看到，它也經常被稱為 application，因此函數也可以被稱為 applicable。在 Racket 裡，application 就是一個 list，第一個元素被當成函數（所以如果放入不是函數的東西會出現錯誤），剩下的被當成參數。到這裡，Racket 的計算規則暫時可以理解成被 quote 包含的會整塊被當成一個值，剩下的會被當成 application。
 
-有了函數呼叫，自然有定義函數的方式，Racket 提供了 define form 來做這件事
+有了函數呼叫，自然有定義函數的方式，Racket 提供了 @code{define} form 來做這件事
 
 @interaction[
 (define (fib n)
@@ -37,7 +37,7 @@ Racket 寫成
 (fib 5)
 ]
 
-我們也可以把 @code{fib} 改寫成 define 的變數形式
+我們也可以把 @code{fib} 改寫成 @code{define} 的變數形式
 
 @racketblock[
 (define fib
@@ -56,7 +56,7 @@ Racket 寫成
 
 @subsection{if}
 
-@code{if} form 是各語言常見的語法，以下是一個 racket 案例
+@code{if} form 是各語言常見的語法，以下是一個案例
 
 @codeblock{
 (if (= x 1)
@@ -64,21 +64,25 @@ Racket 寫成
   'x-is-not-one)
 }
 
-我們可以看到 @code{if} 有三大元素：
+@defform[(if test-expr then-expr else-expr)]{
+    我們可以看到 @code{if} 有三大元素：
 
-@itemlist[
-    @item{條件式（test-expr）}
-    @item{條件式為非假 @code{(not #f)} 的結果式（then-expr）}
-    @item{條件式為假 @code{#f} 的結果式（else-expr）}
-]
+    也就是
 
-也就是
+    @itemlist[
+        @item{條件式（test-expr）}
+        @item{條件式為非假 @code{(not #f)} 的結果式（then-expr）}
+        @item{條件式為假 @code{#f} 的結果式（else-expr）}
+    ]
+}
 
-@defform[(if test-expr then-expr else-expr)]
-
-唯一需要特別注意的是 racket 的 @code{if} 不能省略 else-expr。不過如果有這種需要，可以改用 @code{when} 或是 @code{unless} form。
+唯一需要特別注意的是 racket 的 @code{if} 不能省略 else-expr（跟某些語言不一樣）。不過如果有這種需要，可以改用 @code{when} 或是 @code{unless} form。
 
 @subsection{cond}
+
+@defform[(cond cond-clause ...)]{
+}
+
 @subsection{case}
 @subsection{match}
 
