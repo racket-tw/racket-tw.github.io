@@ -140,7 +140,7 @@ Racket 寫成
   [else  'something-else]) ; else 是可選的
 }
 
-不妨把 x 位置的表達式稱為 target。方括號的 sexp 稱為 case-clause(e.g. @code{[(2 3) 'x-is-two-or-three]}),case-clause 中左手邊的則是一個列表(e.g. @code{'(2 3)} 或者 @code{(list 2 3)}),檢查 x 是否在列表中,返回對應的表達式(e.g. @code{'x-is-two-or-three}),不考慮性能的情況下改寫成 @code{cond} form 的形式相當於
+不妨把 x 位置的表達式稱為 target。方括號的 sexp 稱為 case-clause（e.g. @code{[(2 3) 'x-is-two-or-three]}）,case-clause 中左手邊的則是一個列表（e.g. @code{'(2 3)} 或者 @code{(list 2 3)}）,檢查 x 是否在列表中,返回對應的表達式（e.g. @code{'x-is-two-or-three}）,不考慮性能的情況下改寫成 @code{cond} form 的形式相當於
 
 @codeblock{
 (cond
@@ -159,9 +159,9 @@ Racket 寫成
 
 }
 
-@code{match} form 跟剛剛的 @code{case} form 長很十分像。只是 target 匹配的不是列表中的元素,而是pattern。例子如下:
+@code{match} form 跟剛剛的 @code{case} form 長很十分像。只是 target 匹配的不是列表中的元素,而是 pattern。例子如下:
 
-pattern 可以是constructor和字面值的組合。
+pattern 可以是 constructor 和字面值的組合。
 @interaction[
 #:eval match-eval
 (match 3
@@ -193,7 +193,7 @@ pattern 可以是 identifier 或 @code{_}。當 pattern 是 identifier 或 @code
   [x (format "mismatch with value ~s" x)])
 ]
 
-pattern 可以是constructor和pattern的組合(nested)。
+pattern 可以是 constructor 和 pattern 的組合(nested)。
 @interaction[
 #:eval match-eval
 (match '(a b)
@@ -206,7 +206,7 @@ pattern 可以是constructor和pattern的組合(nested)。
   [(list 'a (list 'b res)) res])
 ]
 
-pattern 中 某個 sub-pattern 的右方插入 @code{...} 代表該 sub-pattern 有任意多個。
+pattern 中 某個 sub-pattern 的右方插入 @code{...} 代表該 sub-pattern 可以有任意多個。
 @interaction[
 #:eval match-eval
 (match '(1 1 1)
