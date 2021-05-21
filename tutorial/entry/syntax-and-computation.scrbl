@@ -2,6 +2,10 @@
 @(require (for-label racket)
           scribble/eval)
 
+@(begin
+  (define match-eval (make-base-eval))
+  (interaction-eval #:eval match-eval (require racket/match)))
+
 @title{語法與計算規則}
 
 語法（syntax）和計算規則（computation rule）經常會被混為一談，但他們是不同的，例如一個 Forth 的函數呼叫可能寫成
@@ -94,6 +98,30 @@ Racket 寫成
 
 }
 
+@code{cond} form 可以看作是 @code{if} 的推廣。例子如下:
+
+@codeblock{
+(cond
+  [(= x 1) 'x-is-one]
+  [(= x 2) 'x-is-two]
+  [(> x 2) 'x-is-more-than-two]
+  [else    'something-else]) ; else 是可選的
+}
+
+它按順序測試任意數量的 test-expr (i.e. @code{(= x 1)}),每個 test-expr 又對應一個表達式 (e.g. @code{'x-is-one}),每組這樣的 sexp 稱為一個 cond-clause (e.g. @code{[(= x 1) 'x-is-one]})。最後一個 cond-clause 中 test-case 可換成 else 來匹配任意情況。
+
+改寫成 @code{if} form 的形式相當於
+
+@codeblock{
+(if (= x 1)
+  'x-is-one
+  (if (= x 2)
+    'x-is-two
+    (if (> x 2) ; 把 test-case 的 else 去掉的話,這行應該就是 (when (> x 2) 'x-is-more-than-two)
+        'x-is-more-than-two
+        'something-else)))
+}
+
 @subsection{case}
 
 @defform/subs[(case val-expr case-clause ...)
@@ -101,6 +129,24 @@ Racket 寫成
                	[else then-body ...+]])
   ]{
 
+}
+
+@code{case} form 跟 C 語言的 switch case 語法很像,例子如下:
+
+@codeblock{
+(case x
+  [(1)   'x-is-one]
+  [(2 3) 'x-is-two-or-three]
+  [else  'something-else]) ; else 是可選的
+}
+
+不妨把 x 位置的表達式稱為 target。方括號的 sexp 稱為 case-clause(e.g. @code{[(2 3) 'x-is-two-or-three]}),case-clause 中左手邊的則是一個列表(e.g. @code{'(2 3)} 或者 @code{(list 2 3)}),檢查 x 是否在列表中,返回對應的表達式(e.g. @code{'x-is-two-or-three}),不考慮性能的情況下改寫成 @code{cond} form 的形式相當於
+
+@codeblock{
+(cond
+  [(or (equal? x 1))              'x-is-one]
+  [(or (equal? x 2) (equal? x 3)) 'x-is-two-or-three] ; Racket 會把這行優化成 O(log N)
+  [else                           'something-else])
 }
 
 @subsection{match}
@@ -112,6 +158,68 @@ Racket 寫成
   ]{
 
 }
+
+@code{match} form 跟剛剛的 @code{case} form 長很十分像。只是 target 匹配的不是列表中的元素,而是pattern。例子如下:
+
+pattern 可以是constructor和字面值的組合。
+@interaction[
+#:eval match-eval
+(match 3
+  [1 'target-is-one]
+  [2 'target-is-two]
+  [3 'target-is-three])
+(match '(a b c)
+  ['(a a a)     "target is a list of three a"]
+  [(list a b)   "target is a list of a and b"]
+  ['(a b c)     "target is a list of a, b and c"])
+(match '(a . b)
+  [(list a b) 'list]
+  [(cons a b) 'pair])]
+
+pattern 可以是 identifier 或 @code{_}。當 pattern 是 identifier 或 @code{_} 時,匹配任意值。
+@interaction[
+#:eval match-eval
+(define x 0)
+(define y 1)
+(match x
+  [10 'x-is-ten]
+  [_  'x-is-not-ten])
+(match y
+  [x "pattern variable is not the same x as the one we defined at begining"]
+  [1 "y is one"])
+(match 2
+  [0 "zero"]
+  [1 "one"]
+  [x (format "mismatch with value ~s" x)])
+]
+
+pattern 可以是constructor和pattern的組合(nested)。
+@interaction[
+#:eval match-eval
+(match '(a b)
+  [(list 'a x) (format "the second element is ~s" x)]
+  [(list  a b) "match but not reach"])
+(match '(a b)
+  [(quote (a x)) "(list 'a 'b) != (list 'a 'x)"]
+  [(quote (a b)) "(list 'a 'b) == (list 'a 'b)"])
+(match '(a (b (c d)))
+  [(list 'a (list 'b res)) res])
+]
+
+pattern 中 某個 sub-pattern 的右方插入 @code{...} 代表該 sub-pattern 有任意多個。
+@interaction[
+#:eval match-eval
+(match '(1 1 1)
+  [(list 1 ...) 'ones]
+  [_ 'other])
+(match '(1 1 2)
+  [(list 1 ...) 'ones]
+  [_ 'other])
+(match '(1 2 3 4)
+  [(list 1 x ... 4) x])
+(match (list (list 'a 23 'b) (list 'c 22 'd))
+    [(list (list x y z) ...) (apply + y)])
+]
 
 @section{let/let*/letrec}
 TODO
