@@ -11,3 +11,4 @@
 @include-section{basic-data.scrbl}
 @include-section{syntax-and-computation.scrbl}
 @include-section{software-development.scrbl}
+@include-section{data-structure.scrbl}
