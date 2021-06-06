@@ -63,7 +63,6 @@ Racket 寫成
 @itemlist[
   @item{@codeblock{(define x 1 1)}？}
   @item{@codeblock{(define (id x) y)}？}
-  @item{@codeblock{(define (foo x y)}？}
   ]
 
 @section{conditional: if/cond/case/match}
