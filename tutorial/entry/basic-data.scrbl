@@ -258,9 +258,21 @@ List 是特殊的 Pair，當一個 Pair 的右側是空的 Pair @code{()} 時，
 (cons 'a (cons 'b 'c))
 ]
 
-到此我們已經對 Pair 和 List 有足夠的了解，接下來是一些相對複雜的資料，只是留作參考，對學習的影響不大，讀者可以跳到計算規則的部分。
+到此我們已經對 Pair 和 List 有足夠的了解，練習看看吧
+
+@subsubsection{exercise}
+
+@itemlist[
+  @item{@code{(1 2)}？}
+  @item{@code{(+ 1)}？}
+  @item{@code{(+)}？}
+  @item{@code{(car 1)}？}
+  @item{@code{(1 + 2)}？}
+  ]
 
 @section{更複雜的資料}
+
+這節是講述一些相對複雜的資料，只是留作參考，對學習的影響不大，讀者可以跳到計算規則的部分。
 
 @itemlist[
     @item{Vectors}
