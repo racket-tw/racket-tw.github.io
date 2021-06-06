@@ -22,7 +22,7 @@ Racket 寫成
 
 但計算規則卻是一樣的：@code{1 2 3} 是 @code{foo} 的參數，結果是由 @code{foo} 的內容決定。於是我們大致可以理解計算規則跟語法為什麼不盡然有關聯了，其實還有很多細節，但對一個 Racket 的入門教學這樣暫時也就夠了。
 
-@section{函數（function）}
+@section{變數與函數（variable and function）}
 
 函數呼叫（function call）大概是最普遍的計算規則，在各種語言裡面都可以看到，它也經常被稱為 application，因此函數也可以被稱為 applicable。在 Racket 裡，application 就是一個 list，第一個元素被當成函數（所以如果放入不是函數的東西會出現錯誤），剩下的被當成參數。到這裡，Racket 的計算規則暫時可以理解成被 quote 包含的會整塊被當成一個值，剩下的會被當成 application。
 
@@ -54,7 +54,17 @@ Racket 寫成
 
 到這裡，我們知道 Racket 除了 quote 跟 application 的第三種規則：form。內建的 form 有很多，而我們可以用 @code{define-syntax} 等 form 定義更多 form，這就是為什麼 Racket 要讓資料跟程式具有同像性，因為如此一來處理程式就如處理資料一般容易。
 
-接下來，我們來了解一些常見的 form
+接下來，我們來了解更多常見的 form 吧！
+
+@subsection{exercise}
+
+下面是關於 @code{define} 的練習
+
+@itemlist[
+  @item{@codeblock{(define x 1 1)}？}
+  @item{@codeblock{(define (id x) y)}？}
+  @item{@codeblock{(define (foo x y)}？}
+  ]
 
 @section{conditional: if/cond/case/match}
 
