@@ -76,6 +76,15 @@ pi
 10+3.412i
 ]
 
+@subsubsection{exercise}
+
+現在讓我們實際使用數字看看
+
+@itemlist[
+  @item{50 分鐘是幾秒？}
+  @item{8 公里是幾公尺？}
+  ]
+
 @subsection{布林值（Boolean）}
 
 布林值也是現代人熟知的資料之一了，用於真假運算上，在 Racket 中寫法比較獨特
