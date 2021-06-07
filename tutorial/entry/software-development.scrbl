@@ -122,7 +122,33 @@
 
 @subsection{測試}
 
+在 Racket 裡編寫測試只需要在檔案中寫下：
+
+@codeblock{
+(module+ test
+  (require rackunit)
+
+  (check-equal? actual expected))
+}
+
+就可以了，用 raco test path/to.rkt 就可以看到測試是否有通過
+
 @subsection{模組}
+
+Racket 中每個檔案都是一個模組，其中還可以用 @code{module} 定義子模組（就像上一節提到的 @code{(module+ test)}）。每個 collection 自帶一個 info.rkt、一個 main.rkt，collection 本身被飲用時視為一個模組，而其中的檔案就被視為 collection 的子模組。
+
+Racket 的風格是保持精簡，無論是模組、類別、函數或是方法。一萬行的模組就太多了、一千行免強可以接受、五百行內是適合的大小。
+
+模組有適當的組織方式，應當按照：匯出（@code{provide}）、引入（@code{require}）、定義，這樣的順序編寫。
+
+如果 collection 是一個可執行程式，那麼可以在 main.rkt 中寫：
+
+@codeblock{
+(module+ main
+  )
+}
+
+這樣一來執行：racket -l collection-name 時，其中的內容就會被執行。
 
 @section{閱讀好程式}
 
