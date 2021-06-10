@@ -1,5 +1,5 @@
 #lang scribble/manual
-@(require (for-label metapict))
+@(require (for-label racket))
 
 @title{metapict}
 @author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]

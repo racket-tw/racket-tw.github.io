@@ -1,7 +1,5 @@
 #lang scribble/manual
-@(require (for-label (except-in racket
-                                extends)
-                     nanopass/base))
+@(require (for-label racket))
 
 @title{從 frontend(compiler) 到 nanopass}
 @author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
