@@ -29,7 +29,7 @@ jobs:
           version: '8.1'
       - name: Build
         run: |
-          raco pkg install --auto --skip-installed semilit nanopass riposte
+          raco pkg install --auto --skip-installed semilit nanopass riposte metapict
           make build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
