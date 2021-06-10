@@ -11,7 +11,7 @@ semilit 是一個文學編程用的語言模組，可以通過以下指令安裝
 raco pkg install from-template
 }|
 
-使用的時候，把第一行插入 @code{semilit}，像這樣
+使用的時候，在第一行插入 @code{semilit}，像這樣
 
 @codeblock|{
 #lang semilit racket
