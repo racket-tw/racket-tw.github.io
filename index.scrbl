@@ -61,7 +61,7 @@ racket 源於 PLT Scheme 這個專案，至今也仍與 scheme 互相影響，�
 編輯器推薦直接用 DrRacket 就好，但也有其他選擇如
 
 @itemlist[
-  @item{@hyperlink["https://marketplace.visualstudio.com/items?itemName=karyfoundation.racket"]{VSCode Plugin}}
+  @item{@hyperlink["https://marketplace.visualstudio.com/items?itemName=evzen-wybitul.magic-racket"]{VSCode Plugin: Magic Racket}}
   @item{@hyperlink["https://github.com/greghendershott/racket-mode"]{Emacs: racket-mode}}
   @item{@hyperlink["https://github.com/wlangstroth/vim-racket"]{Vim: vim-racket}}
   ]
