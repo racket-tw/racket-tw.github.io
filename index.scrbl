@@ -37,6 +37,7 @@ racket 源於 PLT Scheme 這個專案，至今也仍與 scheme 互相影響，�
 @section{Blog}
 
 @itemlist[
+  @item{@hyperlink["./post/2021-08-09-gui-easy.html"]{2021/08/09 gui easy}}
   @item{@hyperlink["./post/2021-06-10-metapict.html"]{2021/06/10 metapict}}
   @item{@hyperlink["./post/2021-04-10-llvm.html"]{2021/04/10 [Scheme] 安裝 Racket-llvm}}
   @item{@hyperlink["./post/2021-03-22-syntax-rules.html"]{2021/03/22 [Scheme] define-syntax 佮 syntax-rules 的使用例}}
