@@ -23,18 +23,18 @@ Then have our first tried.
 
 The above code shows a @bold{hello} text. Except that, we have observable variable:
 
-@codeblock{
+@codeblock|{
 (require racket/gui/easy
          racket/gui/easy/operator)
 
-(define counter (obs 0))
+(define @counter (@ 0))
 
 (render
  (window
   (hpanel
-   (button "-" (lambda () (counter . <~ . sub1)))
-   (text (counter . ~> . number->string))
-   (button "+" (lambda () (counter . <~ . add1))))))
-}
+   (button "-" (lambda () (@counter . <~ . sub1)))
+   (text (@counter . ~> . number->string))
+   (button "+" (lambda () (@counter . <~ . add1))))))
+}|
 
-In this example, @code{obs} create a new observable with initial state. @code{<~} updates observable with its second argument. @code{~>} apply its second argument with current state. In this simple introduction, you can see a good idea is raising. I hope we will move GUI program on to this, and never go back.
+In this example, @code|{@}| create a new observable with initial state. @code{<~} updates observable with its second argument. @code{~>} apply its second argument with current state. In this simple introduction, you can see a good idea is raising. I hope we will move GUI program on to this, and never go back.
