@@ -104,7 +104,7 @@ racket 有數種控制流 form：
 1. 急切求值，簡單來說就是運算會馬上發生，與 @elem{Haskell} 成為對比。
 2. 沒有 return，也沒有 exception。
 
-等等，看到第二點先別急著說這什麼垃圾 www，雖然沒有內建 return 或是 exception，但 racket 提供了更強大的工具 ◊em{continuation}：
+等等，看到第二點先別急著說這什麼垃圾 www，雖然沒有內建 return 或是 exception，但 racket 提供了更強大的工具 @bold{continuation}：
 
 @codeblock|{
 (define (foo x)
