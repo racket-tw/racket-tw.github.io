@@ -45,8 +45,8 @@ e ; 不是，我就只是叫 e 的變數 XD
 @section{控制流}
 
 作為 Lisp 的主要分支之一，racket 到處都是 () [] 等 S expression，並且稱呼 @code[#:lang "racket"]{define} 等特殊的表達式為 form。
-分辨函數與 form 在 racket 中並不容易,但影響其實不大,因為很少有人會需要弄清楚兩者的差別。
-[] 與 () 可以隨意替換使用,這有助於改善可讀性。例如 match 這個用來做 pattern matching 的 form:
+分辨函數與 form 在 racket 中並不容易，但影響其實不，大因為很少有人會需要弄清楚兩者的差別。
+[] 與 () 可以隨意替換使用，這有助於改善可讀性。例如 match 這個用來做 pattern matching 的 form：
 
 @(racketblock
 (match t
