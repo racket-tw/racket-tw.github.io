@@ -193,7 +193,7 @@ polymorphism 或是有些人只聽過 generic，我不打算分清楚他們的�
 ;;; 這會撞到 Polymorphic function `foldl' could not be applied to arguments
 (foldl cons null (list 1 2 3 4))
 ;;; 解法
-(foldl (cons Integer Integer) null (list 1 2 3 4))
+(foldl (inst cons Integer Integer) null (list 1 2 3 4))
 }
 
 @section{interaction}
