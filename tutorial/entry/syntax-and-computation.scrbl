@@ -264,8 +264,8 @@ Racket 寫成
 
 @codeblock{
   (let ([x 1])
-    (let ([y x]))
-      y)
+    (let ([y x])
+      y))
 }
 
 最後則是 @code{letrec}，這次所有變數都可以互相依賴，因此可以寫出遞迴的定義。一般來說前面兩個都建議用 @code{define} 取代，而 @code{letrec} 並不行。
