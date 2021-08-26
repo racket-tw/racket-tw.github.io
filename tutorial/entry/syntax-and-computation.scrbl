@@ -73,8 +73,8 @@ Racket 寫成
 
 @codeblock{
  (if (= x 1)
- 'x-is-one
- 'x-is-not-one)
+   'x-is-one
+   'x-is-not-one)
 }
 
 @defform[(if test-expr then-expr else-expr)]{
@@ -104,10 +104,10 @@ Racket 寫成
 
  @codeblock{
   (cond
-  [(= x 1) 'x-is-one]
-  [(= x 2) 'x-is-two]
-  [(> x 2) 'x-is-more-than-two]
-  [else    'something-else]) ; else 是可選的
+    [(= x 1) 'x-is-one]
+    [(= x 2) 'x-is-two]
+    [(> x 2) 'x-is-more-than-two]
+    [else    'something-else]) ; else 是可選的
  }
 
  它按順序測試任意數量的 test-expr (i.e. @code{(= x 1)}),每個 test-expr 又對應一個表達式 (e.g. @code{'x-is-one}),每組這樣的 sexp 稱為一個 cond-clause (e.g. @code{[(= x 1) 'x-is-one]})。最後一個 cond-clause 中 test-case 可換成 else 來匹配任意情況。
@@ -116,12 +116,12 @@ Racket 寫成
 
  @codeblock{
   (if (= x 1)
-  'x-is-one
-  (if (= x 2)
-  'x-is-two
-  (if (> x 2) ; 把 test-case 的 else 去掉的話,這行應該就是 (when (> x 2) 'x-is-more-than-two)
-  'x-is-more-than-two
-  'something-else)))
+    'x-is-one
+    (if (= x 2)
+      'x-is-two
+      (if (> x 2) ; 把 test-case 的 else 去掉的話,這行應該就是 (when (> x 2) 'x-is-more-than-two)
+        'x-is-more-than-two
+        'something-else)))
  }
 
  @specform[[test-expr then-body ...+]]{
@@ -147,18 +147,18 @@ Racket 寫成
 
  @codeblock{
   (case x
-  [(1)   'x-is-one]
-  [(2 3) 'x-is-two-or-three]
-  [else  'something-else]) ; else 是可選的
+    [(1)   'x-is-one]
+    [(2 3) 'x-is-two-or-three]
+    [else  'something-else]) ; else 是可選的
  }
 
  不妨把 x 位置的表達式稱為 target。方括號的 sexp 稱為 case-clause（e.g. @code{[(2 3) 'x-is-two-or-three]}）,case-clause 中左手邊的則是一個列表（e.g. @code{'(2 3)} 或者 @code{(list 2 3)}）,檢查 x 是否在列表中,返回對應的表達式（e.g. @code{'x-is-two-or-three}）,不考慮性能的情況下改寫成 @code{cond} form 的形式相當於
 
  @codeblock{
   (cond
-  [(or (equal? x 1))              'x-is-one]
-  [(or (equal? x 2) (equal? x 3)) 'x-is-two-or-three] ; Racket 會把這行優化成 O(log N)
-  [else                           'something-else])
+    [(or (equal? x 1))              'x-is-one]
+    [(or (equal? x 2) (equal? x 3)) 'x-is-two-or-three] ; Racket 會把這行優化成 O(log N)
+    [else                           'something-else])
  }
 
 }
