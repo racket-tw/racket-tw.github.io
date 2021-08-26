@@ -235,4 +235,37 @@ Racket 寫成
 }
 
 @section{let/let*/letrec}
-TODO
+
+@code{let} 是一種綁定語法，如下：
+
+@codeblock{
+  (let ([x 1]
+        [y 2])
+    (+ x y))
+}
+
+上面的語法等同於：
+
+@codeblock{
+  ((lambda (x y)
+    (+ x y))
+   1 2)
+}
+
+但注意這僅僅是計算上等價，如果牽涉到副作用、類型與 continuation 等更複雜的模型，上面的轉換並非永遠成立。而 @code{let*} 是 @code{let} 的擴充，表示後面的變數可以依賴前面的變數，如下語法：
+
+@codeblock{
+  (let* ([x 1]
+         [y x])
+    y)
+}
+
+可以視為
+
+@codeblock{
+  (let ([x 1])
+    (let ([y x]))
+      y)
+}
+
+最後則是 @code{letrec}，這次所有變數都可以互相依賴，因此可以寫出遞迴的定義。一般來說前面兩個都建議用 @code{define} 取代，而 @code{letrec} 並不行。
