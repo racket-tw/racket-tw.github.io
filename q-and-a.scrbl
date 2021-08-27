@@ -8,12 +8,13 @@
 
 @section{開發環境}
 
-編輯器推薦直接用 DrRacket 就好，但也有其他選擇如
+編輯器推薦用 DrRacket 加上 sauron 以及 drcomplete 這兩個 plugin。或是使用 magic racket 加上 racket-langserver 的搭配（反正現在這兩個都是我們在維護）。
 
 @itemlist[
   @item{@hyperlink["https://marketplace.visualstudio.com/items?itemName=evzen-wybitul.magic-racket"]{VSCode Plugin: Magic Racket}}
   @item{@hyperlink["https://github.com/greghendershott/racket-mode"]{Emacs: racket-mode}}
   @item{@hyperlink["https://github.com/wlangstroth/vim-racket"]{Vim: vim-racket}}
+  @item{@hyperlink["https://github.com/racket-tw/sauron"]{sauron}}
   ]
 
-但我認為整體來看還是 DrRacket 最為完整，也可以試試看 racket.tw 開發的 @hyperlink["https://github.com/racket-tw/sauron"]{sauron}。
+目前整體來看 VSCode 的開發環境最完整，也可以遠端 pair programming（DrRacket 不能），但 magic racket 有點常 crash。
