@@ -10,3 +10,9 @@
 @include-section["q-and-a.scrbl"]
 @include-section["project.scrbl"]
 @include-section["resource.scrbl"]
+
+@section{近期活動}
+
+@itemlist[
+    @item{RacketCon 2021 (online), from November 5th to November 7th 2021. More details to come.}
+]
