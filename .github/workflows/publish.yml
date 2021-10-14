@@ -22,7 +22,7 @@ jobs:
           path: |
             ~/.racket
           key: ${{ runner.os }}-primes
-      - uses: Bogdanp/setup-racket@v1.6
+      - uses: Bogdanp/setup-racket@v1.6.1
         with:
           architecture: 'x64'
           variant: 'CS'
