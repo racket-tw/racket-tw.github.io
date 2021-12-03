@@ -22,14 +22,14 @@ jobs:
           path: |
             ~/.racket
           key: ${{ runner.os }}-primes
-      - uses: Bogdanp/setup-racket@v1.6.1
+      - uses: Bogdanp/setup-racket@v1.7
         with:
           architecture: 'x64'
           variant: 'CS'
-          version: '8.2'
+          version: '8.3'
       - name: Build
         run: |
-          raco pkg install --auto --skip-installed riposte semilit
+          raco pkg install --auto --skip-installed riposte semilit monotonic
           make build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

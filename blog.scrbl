@@ -3,6 +3,7 @@
 @title[#:tag "blog"]{Blog}
 
 @itemlist[
+  @item{@hyperlink["./post/2021-12-03-monotonic.html"]{2021/12/03 How to measure more percisely than milliseconds}}
   @item{@hyperlink["./post/2021-08-09-gui-easy.html"]{2021/08/09 gui easy}}
   @item{@hyperlink["./post/2021-06-10-metapict.html"]{2021/06/10 metapict}}
   @item{@hyperlink["./post/2021-04-10-llvm.html"]{2021/04/10 [Scheme] 安裝 Racket-llvm}}
