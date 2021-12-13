@@ -7,7 +7,7 @@
 
 @include-section["tutorial.scrbl"]
 @include-section["blog.scrbl"]
-@include-section["q-and-a.scrbl"]
+@include-section["QandA.scrbl"]
 @include-section["project.scrbl"]
 @include-section["resource.scrbl"]
 
