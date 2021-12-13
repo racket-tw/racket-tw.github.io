@@ -1,7 +1,7 @@
 #lang scribble/manual
 
 @title{Racket 進階教學}
-@author[(author+email "Lîm Tsú-thuàn" "racket@racket.tw")]
+@author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
 
 @include-section{advanced/macro.scrbl}
 
