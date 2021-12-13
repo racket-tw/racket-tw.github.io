@@ -14,5 +14,5 @@
 @section{近期活動}
 
 @itemlist[
-    @item{RacketCon 2021 (online), from November 5th to November 7th 2021. More details to come.}
+    @item{@hyperlink["https://gather.town/app/wH1EDG3McffLjrs0/racket-users"]{Racket video meetup 8 Jan 2022}}
 ]
