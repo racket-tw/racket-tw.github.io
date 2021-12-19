@@ -267,7 +267,17 @@ List 是特殊的 Pair，當一個 Pair 的右側是空的 Pair @code{()} 時，
 (cons 'a (cons 'b 'c))
 ]
 
-到此我們已經對 Pair 和 List 有足夠的了解，練習看看吧
+然而最常見的作法還是用 @code{quote} 去建立 List，我們需要系統性的了解它
+
+@itemlist[
+  #:style 'ordered
+  @item{Racket 裡面所有東西都是 list 跟 atom，Racket 會去執行它}
+  @item{@code{quote}/@literal["'"] 就是叫 Racket 不要執行內容}
+  @item{@code{quasiquote}/@literal["`"] 還是 @code{quote}，但預期可能會出現 @code{unquote}/@literal[","]，@code{unquote} 會讓 Racket 執行接續的 s-expression}
+  @item{@code{unquote-splicing}/@literal[",@"] 是說，不止要執行，還要展開到上一層}
+]
+
+你已經對 Pair 和 List 有足夠的了解，練習看看吧
 
 @subsubsection{exercise}
 
@@ -277,6 +287,10 @@ List 是特殊的 Pair，當一個 Pair 的右側是空的 Pair @code{()} 時，
   @item{@code{(+)}？}
   @item{@code{(car 1)}？}
   @item{@code{(1 + 2)}？}
+  @item{@code{'(1 2 3)}？}
+  @item{@code{`(1 ,(add1 1) 3)}？}
+  @item{@code{`(1 ,(list 2 3))}？}
+  @item{@code["`(1 ,@(list 2 3))"]?}
   ]
 
 @section{更複雜的資料}
