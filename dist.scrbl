@@ -15,4 +15,5 @@
 
 @itemlist[
     @item{@hyperlink["https://gather.town/app/wH1EDG3McffLjrs0/racket-users"]{Racket video meetup 8 Jan 2022}}
+    @item{@hyperlink["https://racket.discourse.group/t/creative-racket-competition-2022-january-1-2022-february-28-2022/454"]{Creative Racket Competition 2022: Jan 1 -> Feb 28}}
 ]
