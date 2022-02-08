@@ -121,3 +121,30 @@ racket 有數種控制流 form：
 }|
 
 雖然在這個案例裡面內建 return 的語言更方便，但 @elem{continuation} 提供了更多功能，不過這邊就不深入介紹，之後再另開文章寫這個 XD。
+
+@section{Debug}
+
+@link["https://github.com/AlexKnauth/debug"]{https://github.com/AlexKnauth/debug} 是一個除錯用的函式庫，安裝指令如下
+
+@codeblock|{
+raco pkg install --auto debug
+}|
+
+下面是 quick-sort 的案例，展示我們怎麼查看中間狀態
+
+@codeblock|{
+#lang debug racket
+
+(define/match (qs l)
+  [((list)) l]
+  [((cons head tail))
+   (define-values (l b)
+     #R(partition (lamdba (e) (< e head)) l))
+   (append (qs l) (list head) (qs b))])
+}|
+
+@itemlist[
+  @item{@litchar{#R} 是看值}
+  @item{@litchar{#RR} 額外加上行號}
+  @item{@litchar{#RRR} 額外加上行號跟檔案名稱}
+]
