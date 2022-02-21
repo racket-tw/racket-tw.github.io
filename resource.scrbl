@@ -10,7 +10,6 @@
         racket web 編程實務}
   @item{@hyperlink["https://pkgs.racket-lang.org/"]{Racket 程式庫}
         這是發布第三方程式庫的標準管道}
-  @item{@hyperlink["http://pasterack.org/"]{線上運行環境}}
   ]
 
 @section[#:tag "online"]{線上題庫}
