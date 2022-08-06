@@ -3,6 +3,7 @@
 @title[#:tag "blog"]{Blog}
 
 @itemlist[
+  @item{@hyperlink["./post/2022-07-26-racket-meetup.html"]{2022/07/26 Racket Meetup at Aug 7}}
   @item{@hyperlink["./post/2022-01-18-racket-meetup.html"]{2022/01/18 Racket Meetup at Feb 5}}
   @item{@hyperlink["./post/2021-12-03-monotonic.html"]{2021/12/03 How to measure more percisely than milliseconds}}
   @item{@hyperlink["./post/2021-08-09-gui-easy.html"]{2021/08/09 gui easy}}
