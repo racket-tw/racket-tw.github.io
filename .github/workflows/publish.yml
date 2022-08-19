@@ -16,7 +16,7 @@ jobs:
           version: 'current'
       - name: Build
         run: |
-          raco pkg install --auto --skip-installed riposte semilit monotonic nanopass debug
+          make install
           make build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
