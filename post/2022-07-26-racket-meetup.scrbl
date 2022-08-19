@@ -1,6 +1,6 @@
 #lang scribble/manual
 
-@title{2022/08/07 Racket Meetup}
+@title{Racket Meetup at Aug 7}
 @author[(author+email "Lîm Tsú-thuàn" "dannypsnl@gmail.com")]
 
 @link["https://gather.town/app/wH1EDG3McffLjrs0/racket-users"]{gather town}
