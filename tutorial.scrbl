@@ -19,7 +19,10 @@
 
 @itemlist[
   @item{@hyperlink["https://mitpress.mit.edu/books/software-design-flexibility"]{Software Design for Flexibility: How to Avoid Programming Yourself into a Corner}}
-  @item{@hyperlink["https://mitpress.mit.edu/sites/default/files/sicp/index.html"]{Structure and Interpretation of Computer Programs(SICP)}}
+  @item{
+    @hyperlink["https://mitpress.mit.edu/sites/default/files/sicp/index.html"]{Structure and Interpretation of Computer Programs(SICP)}
+    @hyperlink["https://xuanji.appspot.com/isicp/"]{SICP 的可互動版本}
+  }
   @item{@hyperlink["https://mitpress.mit.edu/books/little-schemer-fourth-edition"]{The Little Schemer}}
   @item{@hyperlink["https://nostarch.com/realmofracket.htm"]{Realm of Racket}}
   @item{@hyperlink["https://nostarch.com/racket-programming-fun-way"]{Racket Programming the Fun Way}}
