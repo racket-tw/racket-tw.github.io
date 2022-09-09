@@ -16,7 +16,7 @@ jobs:
           version: 'current'
       - name: Build
         run: |
-          raco pkg install --skip-installed --user req
+          raco pkg install --auto --skip-installed --user req
           make install
           make build
       - name: Deploy
