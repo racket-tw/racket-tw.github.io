@@ -2,7 +2,7 @@ SCRBL := raco scribble --htmls ++style style.css +m --redirect-main http://docs.
 
 .PHONY: install build clean
 install:
-	raco req -A
+	@raco pkg install --auto --skip-installed riposte semilit monotonic nanopass debug
 
 build:
 	@$(SCRBL) dist.scrbl
