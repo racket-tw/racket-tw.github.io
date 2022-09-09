@@ -1,0 +1,9 @@
+{
+  "dev": [
+    "riposte",
+    "semilit",
+    "monotonic",
+    "nanopass",
+    "debug"
+  ]
+}
