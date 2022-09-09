@@ -13,10 +13,10 @@ jobs:
         with:
           architecture: 'x64'
           variant: 'CS'
-          version: 'current'
+          version: 'stable'
       - name: Build
         run: |
-          raco pkg install --auto --skip-installed --user req
+          raco pkg install --auto --user req
           make install
           make build
       - name: Deploy
